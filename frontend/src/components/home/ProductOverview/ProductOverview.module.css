@@ -1,0 +1,547 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(4.5rem, 8vw, 7rem);
+  background:
+    radial-gradient(
+      ellipse at 82% 46%,
+      rgb(211 240 249 / 58%) 0%,
+      rgb(239 249 253 / 32%) 34%,
+      transparent 69%
+    ),
+    linear-gradient(105deg, var(--color-white) 0%, #f8fcfe 62%, #edf8fc 100%);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 32fr) minmax(0, 68fr);
+  align-items: center;
+  gap: clamp(var(--space-6), 5vw, 6rem);
+  min-height: clamp(29rem, 39vw, 36rem);
+}
+
+.copy {
+  position: relative;
+  z-index: 2;
+  max-width: 24rem;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-3);
+  color: var(--color-accent-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.copy h2 {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: clamp(3.25rem, 6vw, 5rem);
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.tagline {
+  margin: var(--space-5) 0 0;
+  color: var(--color-graphite);
+  font-size: clamp(1.25rem, 2.1vw, 1.9rem);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.tagline span {
+  display: block;
+}
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: var(--space-6);
+  padding-block: 0.55rem;
+  color: var(--color-navy);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: var(--color-accent-dark);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-normal);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--color-accent-dark);
+}
+
+.link:hover::after,
+.link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.arrow {
+  color: var(--color-accent-dark);
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform var(--transition-normal);
+}
+
+.link:hover .arrow,
+.link:focus-visible .arrow {
+  transform: translateX(0.25rem);
+}
+
+.visual {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: clamp(30rem, 40vw, 38rem);
+  max-width: 48rem;
+  --object-size: clamp(16rem, 23.5vw, 23rem);
+  margin-inline: auto;
+}
+
+.visual::before,
+.visual::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.visual::before {
+  top: 3%;
+  right: 6%;
+  bottom: 3%;
+  left: 5%;
+  z-index: -2;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      ellipse at 54% 48%,
+      rgb(154 221 240 / 26%) 0%,
+      rgb(215 242 250 / 16%) 42%,
+      transparent 72%
+    );
+  filter: blur(2.2rem);
+}
+
+.visual::after {
+  top: 15%;
+  right: 14%;
+  bottom: 1%;
+  left: 18%;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgb(175 226 241 / 18%);
+  filter: blur(3.8rem);
+}
+
+.object {
+  position: absolute;
+  width: var(--object-size);
+  height: var(--object-size);
+  pointer-events: auto;
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(24px) scale(0.96);
+  will-change: opacity, filter, transform;
+}
+
+.objectFloat {
+  width: 100%;
+  height: 100%;
+}
+
+.assetFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.objectImage {
+  object-fit: contain;
+  opacity: 0.84;
+  filter: drop-shadow(0 1.25rem 2rem rgb(103 178 207 / 10%));
+}
+
+.architecture {
+  top: 4%;
+  left: 50%;
+  z-index: 2;
+  width: var(--object-size);
+  height: var(--object-size);
+  margin-left: calc(var(--object-size) / -2);
+}
+
+.cloud {
+  bottom: 0;
+  left: 12%;
+  z-index: 1;
+  width: var(--object-size);
+  height: var(--object-size);
+}
+
+.gpu {
+  right: 12%;
+  bottom: 0;
+  z-index: 3;
+  width: var(--object-size);
+  height: var(--object-size);
+}
+
+.objectLabel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  color: rgb(28 71 91 / 82%);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.05;
+  row-gap: 0.08em;
+  text-align: center;
+  text-shadow: 0 1px 0 rgb(255 255 255 / 68%);
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.objectLabel span {
+  display: block;
+}
+
+.objectExplanation {
+  position: absolute;
+  z-index: 3;
+  width: max-content;
+  max-width: 18rem;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+  border-left: 1px solid rgb(44 159 190 / 48%);
+  padding-left: 0.75rem;
+  white-space: pre-line;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-0.35rem);
+  transition:
+    opacity var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.objectExplanation::before {
+  position: absolute;
+  left: -0.65rem;
+  top: 50%;
+  width: 0.65rem;
+  height: 1px;
+  background: rgb(44 159 190 / 48%);
+  content: "";
+  transform: translateY(-50%);
+}
+
+.objectExplanation::after {
+  position: absolute;
+  top: calc(50% - 0.15rem);
+  left: calc(-0.65rem - 0.15rem);
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: rgb(44 159 190 / 72%);
+  box-shadow: 0 0 0 0.15rem rgb(44 159 190 / 12%);
+  content: "";
+}
+
+.architecture .objectExplanation {
+  top: 34%;
+  left: calc(100% + 0.65rem);
+}
+
+.cloud .objectExplanation {
+  bottom: 22%;
+  right: calc(100% + 0.65rem);
+  left: auto;
+  border-left: 0;
+  border-right: 1px solid rgb(44 159 190 / 48%);
+  padding-right: 0.75rem;
+  padding-left: 0;
+  text-align: right;
+}
+
+.cloud .objectExplanation::before {
+  right: -0.65rem;
+  left: auto;
+}
+
+.cloud .objectExplanation::after {
+  right: calc(-0.65rem - 0.15rem);
+  left: auto;
+}
+
+.gpu .objectExplanation {
+  right: auto;
+  left: calc(100% + 0.65rem);
+  bottom: 22%;
+  text-align: left;
+}
+
+.gpu .objectExplanation::before {
+  left: -0.65rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .object:hover .objectExplanation,
+  .object:focus-within .objectExplanation {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.isVisible .object {
+  animation: object-rise 950ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+}
+
+.isVisible .architecture {
+  animation-delay: 0ms;
+}
+
+.isVisible .cloud {
+  animation-delay: 180ms;
+}
+
+.isVisible .gpu {
+  animation-delay: 360ms;
+}
+
+.isVisible .objectFloat {
+  animation: object-float 10s ease-in-out 1000ms infinite alternate;
+}
+
+.isVisible .architecture .objectFloat {
+  animation-delay: 1000ms;
+  animation-duration: 11s;
+  --float-from: -3px;
+  --float-to: 3px;
+}
+
+.isVisible .cloud .objectFloat {
+  animation-delay: 1180ms;
+  animation-duration: 13s;
+  --float-from: -4px;
+  --float-to: 4px;
+}
+
+.isVisible .gpu .objectFloat {
+  animation-delay: 1360ms;
+  animation-duration: 9.5s;
+  --float-from: -3px;
+  --float-to: 3px;
+}
+
+.isVisible .objectLabel {
+  animation: label-in 550ms ease-out both;
+}
+
+.isVisible .architecture .objectLabel {
+  animation-delay: 1050ms;
+}
+
+.isVisible .cloud .objectLabel {
+  animation-delay: 1230ms;
+}
+
+.isVisible .gpu .objectLabel {
+  animation-delay: 1410ms;
+}
+
+@keyframes object-rise {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(28px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes object-float {
+  0% {
+    transform: translateY(var(--float-from, -3px));
+  }
+
+  100% {
+    transform: translateY(var(--float-to, 3px));
+  }
+}
+
+@keyframes label-in {
+  from {
+    opacity: 0;
+    transform: translateX(-0.35rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 52rem) {
+  .section {
+    padding-block: clamp(4rem, 10vw, 6rem);
+  }
+
+  .container {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-6);
+  }
+
+  .copy {
+    max-width: 34rem;
+  }
+
+  .copy h2 {
+    font-size: clamp(3rem, 9vw, 4.25rem);
+  }
+
+  .tagline {
+    font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+  }
+
+  .link {
+    margin-top: var(--space-5);
+  }
+
+  .visual {
+    display: block;
+    height: 420px;
+    max-width: 44rem;
+  }
+
+  .object {
+    position: absolute;
+    flex: none;
+    pointer-events: none;
+  }
+
+  .assetFrame {
+    pointer-events: none;
+  }
+
+  .architecture {
+    top: 2%;
+    right: 0;
+    left: auto;
+    width: 84%;
+    height: 84%;
+    margin-left: 0;
+  }
+
+  .cloud {
+    bottom: 1%;
+    left: 0;
+    width: 56%;
+    height: 56%;
+  }
+
+  .gpu {
+    right: 0;
+    bottom: 1%;
+    width: 56%;
+    height: 56%;
+  }
+
+  .objectLabel {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+  }
+
+  .objectExplanation {
+    display: none;
+  }
+}
+
+@media (max-width: 34rem) {
+  .container {
+    gap: var(--space-5);
+  }
+
+  .copy h2 {
+    font-size: clamp(2.75rem, 13vw, 3.5rem);
+  }
+
+  .visual {
+    height: 420px;
+  }
+
+  .architecture {
+    top: 6%;
+    right: 1%;
+    width: 94%;
+    height: 80%;
+  }
+
+  .cloud {
+    bottom: 6%;
+    left: 1%;
+    width: 47%;
+    height: 29%;
+  }
+
+  .gpu {
+    right: -1%;
+    bottom: 5%;
+    width: 49%;
+    height: 25%;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .object {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .objectFloat {
+    animation: none;
+  }
+
+  .objectLabel {
+    opacity: 1;
+  }
+
+  .link::after,
+  .arrow {
+    transition: none;
+  }
+}

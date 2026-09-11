@@ -1,0 +1,25 @@
+:root {
+  --color-navy: #071931;
+  --color-footer: #e8f2f5;
+  --color-graphite: #1d2a38;
+  --color-ink: #223244;
+  --color-muted: #5d6d7d;
+  --color-white: #ffffff;
+  --color-surface: #f2f6f8;
+  --color-accent: #2c9fbe;
+  --color-accent-dark: #08718e;
+  --color-accent-light: #9ee0ed;
+  --color-border: #d9e2e7;
+  --color-border-strong: #9cacb6;
+  --content-max-width: 80rem;
+  --header-height: 5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --transition-fast: 160ms ease;
+  --transition-normal: 260ms ease;
+  --shadow-subtle: 0 1rem 2.5rem rgb(7 25 49 / 10%);
+  --breakpoint-mobile: 52rem;
+}

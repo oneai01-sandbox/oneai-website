@@ -1,0 +1,5 @@
+.homePage {
+  margin-top: calc(-1 * var(--header-height));
+  padding-top: var(--header-height);
+  background: var(--color-footer);
+}
