@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { Breadcrumb } from "@/components/layout/Breadcrumb/Breadcrumb";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { Header } from "@/components/layout/Header/Header";
 import { siteConfig } from "@/config/site";
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
+        <Breadcrumb />
         <main className="site-main">{children}</main>
         <Footer />
       </body>

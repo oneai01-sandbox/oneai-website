@@ -1,0 +1,744 @@
+.page {
+  margin-top: calc(-1 * (var(--header-height) + var(--crumb-height)));
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 var(--space-4);
+  color: var(--color-accent-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 1.5rem;
+  height: 1px;
+  background: var(--color-accent);
+  content: "";
+}
+
+.icon {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-accent-dark);
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero,
+.overview,
+.demo,
+.capabilities {
+  scroll-margin-top: calc(
+    var(--header-height) + var(--crumb-height) + var(--space-4)
+  );
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  background: var(--color-navy);
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 100svh;
+  align-items: center;
+  padding-top: calc(var(--header-height) + var(--crumb-height));
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.heroEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 var(--space-5);
+  color: var(--color-accent-light);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heroEyebrow::before {
+  width: 1.75rem;
+  height: 1px;
+  background: #5fe7ff;
+  content: "";
+}
+
+.heroCopy h1 {
+  margin: 0;
+  color: var(--color-white);
+  font-size: clamp(3.25rem, 8vw, 6.5rem);
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+}
+
+.heroHeadline {
+  max-width: 22rem;
+  margin: var(--space-5) 0 0;
+  color: rgb(255 255 255 / 92%);
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
+.heroDescription {
+  max-width: 44rem;
+  margin: var(--space-5) 0 0;
+  color: rgb(255 255 255 / 72%);
+  font-size: clamp(0.95rem, 1.5vw, 1.0625rem);
+  line-height: 1.55;
+}
+
+.heroVisual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--color-graphite);
+}
+
+.heroVisual::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(7 25 49 / 92%) 0%,
+      rgb(7 25 49 / 72%) 36%,
+      rgb(7 25 49 / 18%) 72%,
+      rgb(7 25 49 / 42%) 100%
+    ),
+    linear-gradient(0deg, rgb(7 25 49 / 58%) 0%, transparent 48%);
+  content: "";
+  pointer-events: none;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 68% 46%;
+}
+
+.overview {
+  padding-block: clamp(4.5rem, 8vw, 7rem);
+  background: var(--color-white);
+}
+
+.overviewInner {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.overviewCopy {
+  max-width: 32rem;
+  padding-top: 0.35rem;
+}
+
+.overviewCopy h2,
+.demoHeading h2,
+.sectionIntro h2 {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+.ctaCopy h2 {
+  margin: 0;
+  color: var(--color-white);
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+.overviewBody,
+.sectionBody {
+  margin: var(--space-5) 0 0;
+  color: var(--color-muted);
+  font-size: clamp(0.98rem, 1.5vw, 1.0625rem);
+  line-height: 1.75;
+}
+
+.overviewBody + .overviewBody {
+  margin-top: var(--space-4);
+}
+
+.ctaAction > p {
+  margin: var(--space-5) 0 0;
+  color: rgb(184 199 217 / 92%);
+  font-size: clamp(0.98rem, 1.5vw, 1.0625rem);
+  line-height: 1.75;
+}
+
+.overviewFigure {
+  margin: 0;
+}
+
+.overviewVisual {
+  position: relative;
+  overflow: hidden;
+  background: #081525;
+}
+
+.overviewImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.annotations {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+}
+
+.annotation {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0.22em 0.55em;
+  overflow: hidden;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(0.4rem);
+}
+
+.overviewVisual[data-visible="true"] .annotation {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.55s ease var(--annotation-delay, 0ms),
+    transform 0.55s ease var(--annotation-delay, 0ms);
+}
+
+.robotControl {
+  top: 21.15%;
+  left: 3.89%;
+  width: 16.27%;
+  height: 11.37%;
+}
+
+.edgeAi {
+  top: 11.58%;
+  left: 53.47%;
+  width: 15.13%;
+  height: 11.48%;
+}
+
+.visionInput {
+  top: 15.09%;
+  left: 82.66%;
+  width: 14.77%;
+  height: 10.95%;
+}
+
+.objectRecognition {
+  top: 62.81%;
+  left: 53.29%;
+  width: 16.69%;
+  height: 9.24%;
+}
+
+.annotationMarker {
+  display: none;
+}
+
+.annotationTitle {
+  display: block;
+  max-width: 100%;
+  color: #f8fafc;
+  font-size: clamp(0.45rem, 0.62vw, 0.54rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  text-shadow: 0 1px 10px rgb(7 25 49 / 55%);
+}
+
+.annotationBody {
+  display: block;
+  max-width: 100%;
+  margin-top: 0.12rem;
+  color: #b8c7d9;
+  font-size: clamp(0.38rem, 0.52vw, 0.46rem);
+  line-height: 1.25;
+  text-shadow: 0 1px 10px rgb(7 25 49 / 55%);
+}
+
+.annotationList {
+  display: none;
+  margin: var(--space-5) 0 0;
+}
+
+.annotationList ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.annotationList li {
+  display: grid;
+  grid-template-columns: 1.35rem minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: start;
+  padding: 0.85rem 0 0.9rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.listMarker {
+  padding-top: 0.12rem;
+  color: var(--color-accent-dark);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+}
+
+.listCopy span {
+  color: var(--color-navy);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.listCopy p {
+  margin: 0.2rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.demo {
+  padding-block: clamp(4.5rem, 8vw, 7rem);
+  background: var(--color-surface);
+}
+
+.demoIntro {
+  display: grid;
+  grid-template-columns: minmax(auto, 22rem) minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: end;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.demoHeading {
+  max-width: 22rem;
+}
+
+.sectionHeadline {
+  max-width: 28rem;
+  margin: var(--space-4) 0 0;
+  color: var(--color-graphite);
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.35;
+}
+
+.demoLead {
+  min-width: 0;
+  padding: 0.15rem 0 0.2rem 1.5rem;
+  border-left: 1px solid var(--color-border-strong);
+}
+
+.demoLead .sectionHeadline {
+  max-width: none;
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+.demoLead .sectionBody {
+  margin-top: 0.85rem;
+}
+
+.demoFigure {
+  margin: 0;
+}
+
+.videoFrame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--color-graphite);
+}
+
+.videoEmbed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.demoFigure figcaption {
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+}
+
+.capabilities {
+  padding-block: clamp(4.5rem, 8vw, 7rem) clamp(5rem, 9vw, 8rem);
+  background: var(--color-white);
+}
+
+.sectionIntro {
+  max-width: 36rem;
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.capabilityList {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.capability {
+  position: relative;
+  display: flex;
+  min-height: 16.5rem;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  transition:
+    border-color var(--transition-normal),
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.capability::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: var(--color-accent);
+  content: "";
+  transform: scaleX(0.2);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
+
+.capability:hover,
+.capability:focus-within {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-subtle);
+  transform: translateY(-0.28rem);
+}
+
+.capability:hover::before,
+.capability:focus-within::before {
+  transform: scaleX(1);
+}
+
+.capabilityHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.capabilityIndex {
+  color: var(--color-accent-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1;
+}
+
+.capabilityIndex::after {
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  margin-top: 0.8rem;
+  background: var(--color-accent);
+  content: "";
+  transition: width var(--transition-normal);
+}
+
+.capability:hover .capabilityIndex::after,
+.capability:focus-within .capabilityIndex::after {
+  width: 2.65rem;
+}
+
+.capability .icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  transition: color var(--transition-normal);
+}
+
+.capability:hover .icon,
+.capability:focus-within .icon {
+  color: var(--color-accent);
+}
+
+.capability h3 {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
+.capability p {
+  margin: var(--space-4) 0 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.cta {
+  overflow: hidden;
+  padding-block: clamp(5rem, 9vw, 8rem);
+  background:
+    radial-gradient(
+      circle at 78% 48%,
+      rgb(38 181 224 / 14%) 0%,
+      rgb(38 181 224 / 5%) 25%,
+      transparent 55%
+    ),
+    linear-gradient(135deg, #06182d 0%, #071b33 55%, #0a2945 100%);
+}
+
+.ctaInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 1fr);
+  gap: clamp(2.5rem, 8vw, 8rem);
+  align-items: end;
+}
+
+.ctaCopy {
+  min-width: 0;
+}
+
+.ctaCopy .eyebrow {
+  margin-bottom: var(--space-5);
+  color: var(--color-accent-light);
+}
+
+.ctaCopy .eyebrow::before {
+  background: var(--color-accent-light);
+}
+
+.ctaCopy h2 {
+  max-width: 22rem;
+}
+
+.ctaAction {
+  width: min(100%, 27rem);
+  justify-self: end;
+}
+
+.ctaButton {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: clamp(1.75rem, 3.5vw, 2.75rem);
+  padding-block: 0.7rem;
+  color: var(--color-white);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.ctaLine {
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  background: var(--color-accent-light);
+  transition: width var(--transition-normal);
+}
+
+.ctaArrow {
+  color: var(--color-accent-light);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform var(--transition-normal);
+}
+
+.ctaButton:hover .ctaLine,
+.ctaButton:focus-visible .ctaLine {
+  width: 5.25rem;
+}
+
+.ctaButton:hover .ctaArrow,
+.ctaButton:focus-visible .ctaArrow {
+  transform: translateX(0.25rem);
+}
+
+@media (max-width: 64rem) {
+  .demoIntro {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: var(--space-5);
+  }
+
+  .demoHeading,
+  .demoLead {
+    max-width: 40rem;
+  }
+
+  .demoLead {
+    padding: 0.9rem 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .demoLead .sectionHeadline {
+    white-space: normal;
+  }
+
+  .capabilityList {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .capability {
+    min-height: 14.5rem;
+  }
+}
+
+@media (max-width: 52rem) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .heroInner {
+    min-height: 0;
+    padding-top: calc(var(--header-height) + var(--crumb-height));
+    order: 1;
+  }
+
+  .heroCopy {
+    max-width: 38rem;
+    padding-block: clamp(2.25rem, 8vw, 3.25rem) var(--space-6);
+  }
+
+  .heroVisual {
+    position: relative;
+    inset: auto;
+    order: 2;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .heroVisual::after {
+    background:
+      linear-gradient(180deg, rgb(7 25 49 / 28%) 0%, transparent 38%),
+      linear-gradient(0deg, rgb(7 25 49 / 32%) 0%, transparent 42%);
+  }
+
+  .overviewInner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .overviewCopy {
+    max-width: 40rem;
+  }
+
+  .ctaInner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .ctaAction {
+    justify-self: stretch;
+  }
+}
+
+@media (max-width: 40rem) {
+  .heroCopy h1 {
+    font-size: clamp(2.75rem, 16vw, 4rem);
+  }
+
+  .annotationTitle,
+  .annotationBody {
+    display: none;
+  }
+
+  .annotation {
+    overflow: visible;
+    padding: 0;
+  }
+
+  .annotationMarker {
+    display: block;
+    color: #9ee0ed;
+    font-size: clamp(0.78rem, 4vw, 0.98rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-shadow: 0 1px 12px rgb(7 25 49 / 70%);
+  }
+
+  .annotationList {
+    display: block;
+  }
+
+  .capabilityList {
+    grid-template-columns: 1fr;
+  }
+
+  .capability {
+    min-height: 0;
+  }
+
+  .ctaCopy h2 {
+    max-width: 24rem;
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctaLine,
+  .ctaArrow,
+  .annotation,
+  .overviewVisual[data-visible="true"] .annotation,
+  .capability,
+  .capability::before,
+  .capabilityIndex::after {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
