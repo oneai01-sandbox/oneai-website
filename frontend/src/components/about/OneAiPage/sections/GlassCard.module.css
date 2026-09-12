@@ -1,0 +1,248 @@
+/* GlassCard.module.css */
+
+/* 0. 섹션 래퍼: 어두운 배경과 중앙 정렬 */
+.section {
+  width: 100%;
+  min-height: min(48rem, 85vh);
+  padding: clamp(3rem, 6vw, 5.5rem) var(--space-6, 1.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #050c14;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 1. 메인 카드 본체: 프로스티드 밀키 글래스 (Frosted Glass) */
+.cardContainer {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  aspect-ratio: 16 / 9;
+  border-radius: 28px;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  /* 밀키 화이트 글래스 그라디언트 */
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(235, 245, 255, 0.28) 40%,
+    rgba(215, 230, 245, 0.22) 75%,
+    rgba(255, 255, 255, 0.38) 100%
+  );
+
+  backdrop-filter: blur(32px) saturate(180%) brightness(110%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%) brightness(110%);
+
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  border-top: 2px solid rgba(255, 255, 255, 0.85);
+  border-left: 2px solid rgba(255, 255, 255, 0.75);
+
+  box-shadow: 
+    0 30px 60px -12px rgba(0, 0, 0, 0.65),
+    0 10px 20px -5px rgba(0, 0, 0, 0.35),
+    inset 0 1px 3px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.3);
+
+  user-select: none;
+}
+
+/* 2. 상단 사선 유리 반사광 */
+.specularReflection {
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 100%;
+  height: 160%;
+  background: linear-gradient(
+    70deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.05) 58%,
+    transparent 66%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* [추가] 4곳의 스탠드오프 메탈 볼트 원형 심볼 */
+.bolt {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 10;
+  box-sizing: border-box;
+
+  /* 스틸/실버 메탈 볼트 그라디언트 질감 */
+  background: radial-gradient(
+    circle at 35% 35%,
+    #ffffff 0%,
+    #d1d5db 30%,
+    #9ca3af 65%,
+    #4b5563 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  /* 볼트 입체 그림자 및 유리 타공 림(외부 와셔) 효과 */
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.35),
+    0 0 0 2px rgba(255, 255, 255, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* 볼트 중앙 음각 렌치 홀 디테일 */
+.bolt::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #374151;
+  box-shadow: inset 0 1px 1.5px rgba(0, 0, 0, 0.8);
+}
+
+/* 4개 모서리 위치 지정 */
+.boltTopLeft {
+  top: 24px;
+  left: 24px;
+}
+
+.boltTopRight {
+  top: 24px;
+  right: 24px;
+}
+
+.boltBottomLeft {
+  bottom: 24px;
+  left: 24px;
+}
+
+.boltBottomRight {
+  bottom: 24px;
+  right: 24px;
+}
+
+/* 3. 내부 안쪽 라운드 프레임 라인 */
+.innerFrame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 중앙 로고 컨텐츠 */
+.centerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.logoWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* 로고 뒤 파란색 방사형 네온 글로우 */
+.logoGlow {
+  position: absolute;
+  width: clamp(260px, 45vw, 440px);
+  height: clamp(160px, 25vw, 250px);
+  background: radial-gradient(
+    circle,
+    rgba(38, 150, 243, 0.45) 0%,
+    rgba(38, 150, 243, 0.15) 45%,
+    transparent 70%
+  );
+  filter: blur(30px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.brandTitle {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.brandLogoImage {
+  display: block;
+  width: auto;
+  height: clamp(90px, 18vw, 150px);
+  max-width: 82%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+  transition: transform 0.3s ease;
+}
+
+.brandLogoImage:hover {
+  transform: scale(1.02);
+}
+
+/* 반응형 대응 */
+@media (max-width: 768px) {
+  .section {
+    min-height: auto;
+    padding: clamp(2.5rem, 5vw, 3.5rem) var(--space-4, 1rem);
+  }
+
+  .cardContainer {
+    aspect-ratio: 16 / 10;
+    padding: 12px;
+    border-radius: 20px;
+  }
+
+  .bolt {
+    width: 15px;
+    height: 15px;
+  }
+
+  .bolt::after {
+    width: 4px;
+    height: 4px;
+  }
+
+  .boltTopLeft { top: 16px; left: 16px; }
+  .boltTopRight { top: 16px; right: 16px; }
+  .boltBottomLeft { bottom: 16px; left: 16px; }
+  .boltBottomRight { bottom: 16px; right: 16px; }
+
+  .innerFrame {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .brandLogoImage {
+    height: clamp(60px, 16vw, 95px);
+    max-width: 90%;
+  }
+
+  .logoGlow {
+    width: 200px;
+    height: 120px;
+    filter: blur(20px);
+  }
+}
