@@ -95,7 +95,10 @@ export function MobileNavigation() {
                 <div className={styles.menuHeading}>
                   <Link
                     className={
-                      itemIsActive(item.href, pathname, hash) ? styles.active : undefined
+                      itemIsActive(item.href, pathname, hash) ||
+                      Boolean(item.children?.some((child) => itemIsActive(child.href, pathname, hash)))
+                        ? styles.active
+                        : undefined
                     }
                     href={item.href}
                     onClick={closeMenu}

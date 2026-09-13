@@ -1,0 +1,296 @@
+/* Signboard.module.css */
+
+/* 0. 섹션 래퍼: 타일 벽면 느낌의 다크 슬레이트 배경과 상단 스포트라이트 조명 */
+.section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 20%, #2b3543 0%, #11161d 60%, #090c10 100%);
+  padding: 30px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 전체 래퍼: 벽면 그림자와 백라이트 위치 기준 */
+.boardWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 920px;
+  aspect-ratio: 2 / 1;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* 1. 현판 뒤쪽 벽면에 반사되는 네온 블루 백라이트 글로우 */
+.neonBacklight {
+  position: absolute;
+  inset: -10px;
+  border-radius: 28px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(14, 165, 233, 0.45) 20%,
+    rgba(3, 105, 161, 0.25) 50%,
+    rgba(0, 0, 0, 0) 75%
+  );
+  filter: blur(28px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 2. 메인 현판 본체 (브러시드 다크 메탈 플레이트) */
+.plaque {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  /* 다크 메탈 질감 (상단 조명 및 브러시드 느낌 그라디언트) */
+  background: 
+    linear-gradient(170deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 30%),
+    linear-gradient(135deg, #1b2636 0%, #0d1622 45%, #080e16 100%);
+
+  /* 아크릴/메탈 테두리 빛 반사 + 벽면 드롭 섀도우 */
+  border: 1.5px solid rgba(80, 140, 200, 0.4);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.85),
+    0 0 15px rgba(56, 189, 248, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.35),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.6);
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  user-select: none;
+}
+
+/* 메탈 표면의 사선 헤어라인 및 조명 반사광 레이어 */
+.metalSheen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 35% 15%,
+    rgba(255, 255, 255, 0.12) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* 3. 모서리 볼트/스탠드오프 핀 (Standoff Bolts) */
+.bolt {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  z-index: 10;
+  
+  /* 금속 스크루 광택 느낌 */
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #94a3b8 40%, #334155 85%, #0f172a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.7),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    0 0 4px rgba(56, 189, 248, 0.3);
+}
+
+/* 나사 중앙 십자/원형 음각 포인트 */
+.bolt::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1e293b;
+  box-shadow: inset 0 1px 1px #000;
+}
+
+.boltTopLeft { top: 22px; left: 22px; }
+.boltTopRight { top: 22px; right: 22px; }
+.boltBottomLeft { bottom: 22px; left: 22px; }
+.boltBottomRight { bottom: 22px; right: 22px; }
+
+/* 4. 내부 콘텐츠 레이아웃 */
+.content {
+  position: relative;
+  z-index: 5;
+  height: 100%;
+  padding: 45px 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+/* 브랜드 로고 영역: 위치를 아래로 살짝 내림 */
+.brandGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.symbolWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 검은색 텍스트와 심볼 외곽선을 밝게 감싸는 다층 밝은 톤 광택 및 섀도우 */
+  filter: 
+    drop-shadow(0 0 2px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.7))
+    drop-shadow(0 0 24px rgba(186, 230, 253, 0.55))
+    drop-shadow(0 8px 24px rgba(0, 0, 0, 0.75));
+}
+
+.brandLogoImage {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  height: clamp(95px, 18vw, 180px);
+  max-width: 95%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.brandLogoImage:hover {
+  transform: scale(1.02);
+}
+
+.symbolIcon {
+  width: 100%;
+  height: 100%;
+}
+
+/* 스틸 양각 텍스트 (Beveled Metal Text) */
+.brandTitle {
+  margin: 0;
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  
+  /* 메탈 질감 그라디언트 채우기 */
+  background: linear-gradient(180deg, #f8fafc 0%, #cbd5e1 45%, #64748b 70%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* 벽면에서 튀어나온 3D 양각 그림자 */
+  filter: 
+    drop-shadow(0 4px 6px rgba(0, 0, 0, 0.8))
+    drop-shadow(0 1px 1px rgba(255, 255, 255, 0.4));
+}
+
+.brandSubtitle {
+  margin: 8px 0 0 0;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  
+  background: linear-gradient(180deg, #e2e8f0 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.7));
+}
+
+/* 하단 플랫폼 텍스트 영역 */
+.descriptionGroup {
+  margin-bottom: 8px;
+}
+
+.platformText {
+  margin: 0 0 6px 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.taglineText {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #f1f5f9;
+  text-shadow: 
+    0 3px 8px rgba(0, 0, 0, 0.9),
+    0 0 12px rgba(148, 163, 184, 0.25);
+}
+
+/* 반응형 모바일 축소 대응 */
+@media (max-width: 768px) {
+  .section {
+    padding: clamp(2.5rem, 5vw, 4rem) 16px;
+    min-height: auto;
+  }
+
+  .boardWrapper {
+    aspect-ratio: auto;
+  }
+
+  .content {
+    padding: 35px 20px 25px 20px;
+    gap: 20px;
+  }
+
+  .brandGroup {
+    margin-top: 14px;
+  }
+
+  .symbolWrapper {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .brandLogoImage {
+    height: clamp(65px, 16vw, 100px);
+  }
+
+  .brandTitle {
+    font-size: 3.2rem;
+  }
+
+  .brandSubtitle {
+    font-size: 1.15rem;
+  }
+
+  .platformText {
+    font-size: 0.85rem;
+  }
+
+  .taglineText {
+    font-size: 0.95rem;
+  }
+
+  .bolt {
+    width: 16px;
+    height: 16px;
+  }
+
+  .boltTopLeft { top: 14px; left: 14px; }
+  .boltTopRight { top: 14px; right: 14px; }
+  .boltBottomLeft { bottom: 14px; left: 14px; }
+  .boltBottomRight { bottom: 14px; right: 14px; }
+}

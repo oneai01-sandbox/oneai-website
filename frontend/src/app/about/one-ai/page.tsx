@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 
-import { PlaceholderPage } from "@/components/common/PlaceholderPage";
+import { OneAiPage } from "@/components/about/OneAiPage/OneAiPage";
 import { createPageMetadata } from "@/config/site";
 
-export const metadata: Metadata = createPageMetadata("ONE AI");
+export const metadata: Metadata = createPageMetadata(
+  "ONE AI",
+  "Introducing ONE AI, the only domestic company with full-stack On-Device Physical AI, and one of Asia’s fastest-growing industrial edge AI companies.",
+);
 
-export default function OneAiPage() {
-  return (
-    <PlaceholderPage
-      eyebrow="About / ONE AI"
-      title="ONE AI"
-      description="Company information and a clear introduction to ONE AI will be added here."
-    />
-  );
+export default function AboutOneAiRoute() {
+  return <OneAiPage />;
 }

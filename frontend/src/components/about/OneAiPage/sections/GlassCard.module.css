@@ -1,0 +1,295 @@
+/* GlassCard.module.css */
+
+/* 0. 섹션 래퍼: 어두운 배경 */
+.section {
+  width: 100%;
+  padding-block: clamp(4.5rem, 9vw, 7.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-navy, #071931);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 0-1. 좌/우 2열 레이아웃 컨테이너: 중앙 집중 배치 */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  width: 100%;
+  max-width: 62rem;
+  margin-inline: auto;
+}
+
+/* 1. 메인 카드 본체: 중앙에 최적화된 아담한 정사각형 형태 (1:1) */
+.cardContainer {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  border-radius: 28px;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  /* 밀키 화이트 글래스 그라디언트 (빛을 받는 각도 반영) */
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(235, 245, 255, 0.28) 40%,
+    rgba(215, 230, 245, 0.22) 75%,
+    rgba(255, 255, 255, 0.38) 100%
+  );
+
+  backdrop-filter: blur(32px) saturate(180%) brightness(110%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%) brightness(110%);
+
+  /* 상단/좌측은 빛을 받아 반짝이고, 하단/우측은 깊이감을 주는 테두리 */
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-top: 2px solid rgba(255, 255, 255, 0.85);
+  border-left: 2px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 1.5px solid rgba(15, 23, 42, 0.25);
+  border-right: 1.5px solid rgba(15, 23, 42, 0.2);
+
+  /* 입체감 다단계 섀도우 */
+  box-shadow: 
+    0 40px 65px -15px rgba(0, 0, 0, 0.75),
+    0 20px 30px -5px rgba(0, 0, 0, 0.55),
+    0 8px 16px -2px rgba(0, 0, 0, 0.4),
+    inset 0 2px 3px rgba(255, 255, 255, 0.95),
+    inset 2px 0 3px rgba(255, 255, 255, 0.6),
+    inset 0 -3px 6px rgba(15, 23, 42, 0.2);
+
+  user-select: none;
+  transform: translateZ(0);
+}
+
+/* 4곳의 스탠드오프 메탈 볼트 원형 심볼: 유리를 뚫고 나온 입체 캡 */
+.bolt {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 10;
+  box-sizing: border-box;
+
+  /* 스틸/실버 메탈 볼트 그라디언트 질감 */
+  background: radial-gradient(
+    circle at 35% 32%,
+    #ffffff 0%,
+    #e2e8f0 25%,
+    #94a3b8 55%,
+    #475569 85%,
+    #1e293b 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  /* 볼트 입체 그림자 + 투명 홀 림 */
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.45),
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 0 2px rgba(255, 255, 255, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+}
+
+/* 볼트 중앙 음각 렌치 홀 디테일 */
+.bolt::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1e293b;
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.9),
+    0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* 4개 모서리 위치 지정 */
+.boltTopLeft {
+  top: 22px;
+  left: 22px;
+}
+
+.boltTopRight {
+  top: 22px;
+  right: 22px;
+}
+
+.boltBottomLeft {
+  bottom: 22px;
+  left: 22px;
+}
+
+.boltBottomRight {
+  bottom: 22px;
+  right: 22px;
+}
+
+/* 2. 내부 안쪽 라운드 프레임 라인 */
+.innerFrame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 중앙 로고 컨텐츠 */
+.centerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.logoWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* 로고 뒤 파란색 방사형 네온 글로우 */
+.logoGlow {
+  position: absolute;
+  width: clamp(180px, 25vw, 260px);
+  height: clamp(180px, 25vw, 260px);
+  background: radial-gradient(
+    circle,
+    rgba(38, 150, 243, 0.4) 0%,
+    rgba(38, 150, 243, 0.12) 45%,
+    transparent 70%
+  );
+  filter: blur(24px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.brandTitle {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.brandLogoImage {
+  display: block;
+  width: auto;
+  height: clamp(92px, 16vw, 115px);
+  max-width: 82%;
+  object-fit: contain;
+  filter: 
+    drop-shadow(0 6px 14px rgba(0, 0, 0, 0.28))
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.18));
+  transition: transform 0.3s ease;
+}
+
+.brandLogoImage:hover {
+  transform: scale(1.03);
+}
+
+/* 3. 우측 정보 영역 (platformTitle & tagline) */
+.infoArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 32rem;
+}
+
+.platformTitle {
+  margin: 0 0 var(--space-3, 0.75rem);
+  color: #ffffffeb;
+  font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+}
+
+.taglineText {
+  margin: 0;
+  color: #ffffffb8;
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+/* 4. 반응형 대응 (화면이 좁아질 때 수직 정렬) */
+@media (max-width: 52rem) {
+  .section {
+    padding-block: clamp(3.5rem, 7vw, 5rem);
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-6, 1.5rem);
+  }
+
+  .cardContainer {
+    max-width: 320px;
+    border-radius: 22px;
+    padding: 12px;
+  }
+
+  .bolt {
+    width: 16px;
+    height: 16px;
+  }
+
+  .bolt::after {
+    width: 5px;
+    height: 5px;
+  }
+
+  .boltTopLeft { top: 16px; left: 16px; }
+  .boltTopRight { top: 16px; right: 16px; }
+  .boltBottomLeft { bottom: 16px; left: 16px; }
+  .boltBottomRight { bottom: 16px; right: 16px; }
+
+  .innerFrame {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .brandLogoImage {
+    height: clamp(55px, 14vw, 75px);
+    max-width: 86%;
+  }
+
+  .logoGlow {
+    width: 160px;
+    height: 160px;
+    filter: blur(18px);
+  }
+
+  .infoArea {
+    align-items: center;
+    text-align: center;
+  }
+}

@@ -18,7 +18,6 @@ export function CompanyIntro() {
               width={480}
               height={160}
               priority
-              style={{ width: "auto", height: "auto" }}
             />
           </h1>
           <p className={styles.description}>

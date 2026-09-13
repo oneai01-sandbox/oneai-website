@@ -34,7 +34,9 @@ export function Navigation() {
       <ul className={styles.menu}>
         {navigationItems.map((item) => {
           const menuId = `desktop-menu-${item.label.toLowerCase().replaceAll(" ", "-")}`;
-          const active = itemIsActive(item.href, pathname, hash);
+          const active =
+            itemIsActive(item.href, pathname, hash) ||
+            Boolean(item.children?.some((child) => itemIsActive(child.href, pathname, hash)));
 
           return (
             <li

@@ -3,7 +3,7 @@ import type { NavigationItem } from "@/types/navigation";
 export const navigationItems: NavigationItem[] = [
   {
     label: "About",
-    href: "/about",
+    href: "/about/one-ai",
     children: [
       { label: "ONE AI", href: "/about/one-ai" },
       { label: "Leadership", href: "/about/leadership" },
