@@ -9,12 +9,15 @@ export const siteConfig = {
 
 // Replace these values when the official company contact details are finalized.
 export const siteContact = {
-  address: "Seoul, Korea",
+  address: "143, Gasan digital 2-ro, Geumcheon-gu, Seoul, Republic of Korea",
   email: "oneai@one-ai.dev",
+  phone: "+82 2-0000-0000",
+  businessHours: "Mon - Fri, 09:00 - 18:00 (KST)",
 } as const;
 
 export const siteRoutes = {
   contact: "/support/contact",
+  contactForm: "https://forms.cloud.microsoft/r/xvZFGvMjn9",
   requestDemo: "/request-demo",
   privacy: "/privacy-policy",
 } as const;
