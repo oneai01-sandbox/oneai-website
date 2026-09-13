@@ -9,17 +9,18 @@ import styles from "./OneAiPage.module.css";
 export function OneAiPage() {
   return (
     <div className={styles.page}>
+      
       {/* 1. 회사 소개말 */}
       <CompanyIntro />
 
       {/* Signboard 쇼케이스 */}
-      <Signboard />
+      {/* <Signboard /> */}
 
       {/* Glass Card 쇼케이스 */}
-      <GlassCard />
+      {/* <GlassCard /> */}
 
       {/* 2. Mission & Vision */}
-      <MissionVision />
+      {/* <MissionVision /> */}
 
       {/* 3. Our Journey */}
       <OurJourney />

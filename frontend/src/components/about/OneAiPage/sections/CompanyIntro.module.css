@@ -1,39 +1,238 @@
 .section {
-  padding-block: clamp(5rem, 10vw, 8rem);
-  background: var(--color-white);
-  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: clamp(28rem, 58vw, 40rem);
+  overflow: hidden;
+  background: #06101c;
 }
 
-.content {
-  max-width: 48rem;
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
-.eyebrow {
-  margin: 0 0 var(--space-4);
-  color: var(--color-accent);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.backgroundImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 6vw, 5.5rem);
+  width: 100%;
+  padding-top: calc(
+    var(--header-height) + var(--crumb-height) + clamp(2rem, 4vw, 3.25rem)
+  );
+  padding-bottom: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.plaqueStage {
+  flex-shrink: 0;
+}
+
+.plaque {
+  position: relative;
+  width: clamp(14.5rem, 28vw, 22rem);
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+
+.plaqueImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 18px 28px rgb(0 0 0 / 42%));
+  transition: transform var(--transition-normal), filter 420ms ease;
+}
+
+.logoLayer {
+  position: absolute;
+  inset: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12%;
+}
+
+.logoGlow {
+  position: absolute;
+  width: 78%;
+  height: 78%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgb(255 255 255 / 42%) 0%,
+    rgb(158 224 237 / 22%) 42%,
+    transparent 72%
+  );
+  filter: blur(10px);
+  opacity: 0.72;
+  pointer-events: none;
+  transition:
+    opacity 420ms ease,
+    transform 420ms ease;
+}
+
+.logo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 86%;
+  height: auto;
+  object-fit: contain;
+  filter:
+    brightness(0) invert(1)
+    drop-shadow(0 2px 6px rgb(0 0 0 / 35%));
+  transform: translateY(0) scale(1);
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 420ms ease;
+}
+
+.logoSheen {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 32%,
+    rgb(255 255 255 / 0%) 42%,
+    rgb(255 255 255 / 46%) 50%,
+    rgb(255 255 255 / 0%) 58%,
+    transparent 68%
+  );
+  transform: translateX(-130%);
+  opacity: 0;
+}
+
+.plaque:hover .plaqueImage,
+.plaque:focus-visible .plaqueImage {
+  transform: translateY(-8px) scale(1.03);
+  filter: drop-shadow(0 28px 40px rgb(0 0 0 / 52%));
+}
+
+.plaque:hover .logoGlow,
+.plaque:focus-visible .logoGlow {
+  opacity: 1;
+  transform: scale(1.28);
+}
+
+.plaque:hover .logo,
+.plaque:focus-visible .logo {
+  transform: translateY(-6px) scale(1.1);
+  filter:
+    brightness(0) invert(1)
+    drop-shadow(0 0 16px rgb(158 224 237 / 80%))
+    drop-shadow(0 0 32px rgb(44 159 190 / 50%))
+    drop-shadow(0 10px 18px rgb(0 0 0 / 40%));
+}
+
+.plaque:hover .logoSheen,
+.plaque:focus-visible .logoSheen {
+  opacity: 1;
+  animation: logo-sheen 900ms ease forwards;
+}
+
+.plaque:focus-visible {
+  outline: none;
+}
+
+.copy {
+  flex: 1 1 24rem;
+  max-width: 38rem;
 }
 
 .title {
   margin: 0;
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  display: block;
-  width: clamp(11rem, 24vw, 17rem);
-  height: auto;
-  object-fit: contain;
+  color: var(--color-white);
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
 }
 
 .description {
-  max-width: 38rem;
-  margin: var(--space-6) 0 0;
-  color: var(--color-muted);
-  font-size: 1.125rem;
+  max-width: 36rem;
+  margin: var(--space-5) 0 0;
+  color: rgb(255 255 255 / 78%);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
   line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes logo-sheen {
+    from {
+      transform: translateX(-130%);
+    }
+
+    to {
+      transform: translateX(130%);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plaqueImage,
+  .logo,
+  .logoGlow,
+  .logoSheen {
+    transition: none;
+  }
+
+  .plaque:hover .plaqueImage,
+  .plaque:focus-visible .plaqueImage,
+  .plaque:hover .logo,
+  .plaque:focus-visible .logo,
+  .plaque:hover .logoGlow,
+  .plaque:focus-visible .logoGlow {
+    transform: none;
+  }
+
+  .plaque:hover .logoSheen,
+  .plaque:focus-visible .logoSheen {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 52rem) {
+  .section {
+    min-height: auto;
+  }
+
+  .inner {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-6);
+    padding-top: calc(
+      var(--header-height) + var(--crumb-height) + clamp(1.5rem, 6vw, 2.5rem)
+    );
+    padding-bottom: clamp(3rem, 10vw, 4.5rem);
+  }
+
+  .plaque {
+    width: min(16.5rem, 72vw);
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .description {
+    max-width: 28rem;
+  }
 }

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: calc(-1 * (var(--header-height) + var(--crumb-height)));
 }
 
 /* 1. 회사 소개말 섹션 (PlaceholderPage 디자인 100% 동일 적용) */
