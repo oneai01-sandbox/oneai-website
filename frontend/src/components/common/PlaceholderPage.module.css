@@ -1,5 +1,6 @@
 .page {
-  padding-block: clamp(5rem, 10vw, 9rem);
+  padding-top: var(--placeholder-pt, clamp(5rem, 10vw, 9rem));
+  padding-bottom: var(--placeholder-pb, clamp(5rem, 10vw, 9rem));
   background-color: var(--placeholder-bg, transparent);
 }
 

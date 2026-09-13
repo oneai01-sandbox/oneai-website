@@ -41,8 +41,8 @@ export const partners: Partner[] = [
     maxHeight: "3.5rem",
   },
   {
-    name: "Jahyang Hospital",
-    logo: "/jahyang-logo.png",
+    name: "Jayang Hospital",
+    logo: "/jayang-logo.jpg",
     maxWidth: "9rem",
     maxHeight: "4rem",
   },

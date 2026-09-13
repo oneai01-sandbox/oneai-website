@@ -1,0 +1,4 @@
+.page {
+  --placeholder-pb: clamp(2rem, 5vw, 4rem);
+}
+

@@ -1,0 +1,186 @@
+.section {
+  padding-block: var(--space-8, 4rem) clamp(5rem, 10vw, 9rem);
+  background: var(--color-white);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0.5rem;
+  list-style: none;
+}
+
+.list li {
+  min-width: 0;
+}
+
+.card {
+  position: relative;
+  display: block;
+  min-height: clamp(20rem, 28vw, 23rem);
+  overflow: hidden;
+  background: var(--color-navy);
+  color: var(--color-white);
+  isolation: isolate;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.card:hover,
+.card:focus-visible,
+.card:focus-within,
+.ctaCard {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 6px 12px rgba(0, 0, 0, 0.06);
+}
+
+.card::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgb(7 25 49 / 95%) 0%, rgb(7 25 49 / 40%) 45%, transparent 100%);
+  content: "";
+  pointer-events: none;
+  transition: background var(--transition-normal);
+}
+
+.card::after {
+  position: absolute;
+  inset: 0.5rem;
+  z-index: 3;
+  border: 1px solid rgb(158 224 237 / 0%);
+  content: "";
+  pointer-events: none;
+  transition: border-color var(--transition-normal);
+  border-radius: 2px;
+}
+
+.imageFrame {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: contain;
+  padding: 3rem;
+  background-color: var(--color-white);
+  transition:
+    filter var(--transition-normal),
+    transform 700ms cubic-bezier(0.2, 0.65, 0.2, 1);
+}
+
+.cardContent {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  padding-right: 3.5rem;
+}
+
+.icon {
+  position: absolute;
+  right: clamp(1.25rem, 2.5vw, 2rem);
+  bottom: clamp(1.25rem, 2.5vw, 2rem);
+  color: var(--color-accent-light);
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1;
+  z-index: 3;
+  transform: translate(-0.25rem, 0);
+  transition: transform var(--transition-normal);
+}
+
+.card h3 {
+  margin: 0;
+  color: var(--color-white);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+.card p {
+  max-width: 19rem;
+  margin: var(--space-4) 0 0;
+  color: rgb(255 255 255 / 76%);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition:
+    opacity var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.card:hover::before,
+.card:focus-visible::before,
+.card:focus-within::before,
+.ctaCard::before {
+  background: linear-gradient(to top, rgb(7 25 49) 0%, rgb(7 25 49 / 75%) 50%, rgb(7 25 49 / 15%) 100%);
+}
+
+/* Ensure CSS Module exports the class */
+.ctaCard {
+}
+
+.card:hover::after,
+.card:focus-visible::after,
+.card:focus-within::after,
+.ctaCard::after {
+  border-color: rgb(158 224 237 / 52%);
+}
+
+.card:hover .image,
+.card:focus-visible .image,
+.card:focus-within .image {
+  filter: saturate(0.8);
+  transform: scale(1.06);
+}
+
+.card:hover p,
+.card:focus-visible p,
+.card:focus-within p,
+.ctaCard p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover .icon,
+.card:focus-visible .icon,
+.card:focus-within .icon {
+  transform: translate(0, 0);
+}
+
+@media (max-width: 52rem) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .card {
+    min-height: 22rem;
+  }
+}
+
+@media (max-width: 34rem) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    min-height: 21rem;
+  }
+}
+
+@media (hover: none) {
+  .card p {
+    opacity: 1;
+    transform: none;
+  }
+}
+
