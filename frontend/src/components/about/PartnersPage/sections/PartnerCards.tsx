@@ -19,16 +19,10 @@ export function PartnerCards() {
     <section className={styles.section} aria-label="Our Partners">
       <Container>
         <ul className={styles.list}>
-          {partners.map((partner, i) => {
-            const CardWrapper = partner.href ? Link : "div";
+          {partners.map((partner) => {
             const cardClasses = `${styles.card} ${partner.isCta ? styles.ctaCard : ""}`.trim();
-            const cardProps = partner.href 
-              ? { href: partner.href, "aria-label": `Visit ${partner.name}` } 
-              : {};
-            
-            return (
-              <li key={partner.name}>
-                <CardWrapper className={cardClasses} {...cardProps}>
+            const cardInner = (
+              <>
                   {partner.image && (
                     <div className={styles.imageFrame}>
                       <Image
@@ -47,7 +41,18 @@ export function PartnerCards() {
                   <span className={styles.icon} aria-hidden="true">
                     {partner.href ? "→" : "+"}
                   </span>
-                </CardWrapper>
+              </>
+            );
+
+            return (
+              <li key={partner.name}>
+                {partner.href ? (
+                  <Link href={partner.href} className={cardClasses} aria-label={`Visit ${partner.name}`}>
+                    {cardInner}
+                  </Link>
+                ) : (
+                  <div className={cardClasses}>{cardInner}</div>
+                )}
               </li>
             );
           })}
