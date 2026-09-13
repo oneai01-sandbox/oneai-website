@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import { Container } from "@/components/common/Container";
 
@@ -32,7 +32,21 @@ const objects = [
   },
 ];
 
-export function ProductOverview() {
+type ProductOverviewProps = {
+  title?: ReactNode;
+  headingId?: string;
+  sectionId?: string;
+  showLink?: boolean;
+  stackedTitle?: boolean;
+};
+
+export function ProductOverview({
+  title = "AXIS ONE",
+  headingId = "product-overview-title",
+  sectionId,
+  showLink = true,
+  stackedTitle = false,
+}: ProductOverviewProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -67,22 +81,32 @@ export function ProductOverview() {
     <section
       ref={sectionRef}
       className={`${styles.section} ${isVisible ? styles.isVisible : ""}`}
-      aria-labelledby="product-overview-title"
+      id={sectionId}
+      aria-labelledby={headingId}
     >
-      <Container className={styles.container}>
-        <div className={styles.copy}>
+      <Container
+        className={`${styles.container} ${stackedTitle ? styles.containerStacked : ""}`.trim()}
+      >
+        <div className={`${styles.copy} ${stackedTitle ? styles.copyStacked : ""}`.trim()}>
           <p className={styles.eyebrow}>PRODUCT</p>
-          <h2 id="product-overview-title">AXIS ONE</h2>
+          <h2
+            className={stackedTitle ? styles.stackedTitle : undefined}
+            id={headingId}
+          >
+            {title}
+          </h2>
           <p className={styles.tagline}>
             <span>Industrial intelligence,</span>
             <span>built at the edge.</span>
           </p>
-          <Link className={styles.link} href="/product/axis-one">
-            <span>Discover Axis ONE</span>
-            <span className={styles.arrow} aria-hidden="true">
-              →
-            </span>
-          </Link>
+          {showLink ? (
+            <Link className={styles.link} href="/product/axis-one">
+              <span>Discover Axis ONE</span>
+              <span className={styles.arrow} aria-hidden="true">
+                →
+              </span>
+            </Link>
+          ) : null}
         </div>
 
         <div

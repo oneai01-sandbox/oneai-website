@@ -4,18 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { demoCta, navigationItems } from "@/config/navigation";
+import {
+  demoCta,
+  isNavigationItemActive,
+  navigationItems,
+  syncSamePageHash,
+} from "@/config/navigation";
 
 import styles from "./MobileNavigation.module.css";
-
-function itemIsActive(href: string, pathname: string, hash: string) {
-  const [path, anchor] = href.split("#");
-  if (anchor) {
-    return pathname === path && hash === `#${anchor}`;
-  }
-
-  return pathname === path || pathname.startsWith(`${path}/`);
-}
 
 export function MobileNavigation() {
   const pathname = usePathname();
@@ -25,10 +21,15 @@ export function MobileNavigation() {
 
   useEffect(() => {
     const updateHash = () => setHash(window.location.hash);
+    updateHash();
     window.addEventListener("hashchange", updateHash);
+    window.addEventListener("popstate", updateHash);
 
-    return () => window.removeEventListener("hashchange", updateHash);
-  }, []);
+    return () => {
+      window.removeEventListener("hashchange", updateHash);
+      window.removeEventListener("popstate", updateHash);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -95,13 +96,20 @@ export function MobileNavigation() {
                 <div className={styles.menuHeading}>
                   <Link
                     className={
-                      itemIsActive(item.href, pathname, hash) ||
-                      Boolean(item.children?.some((child) => itemIsActive(child.href, pathname, hash)))
+                      isNavigationItemActive(item.href, pathname, hash) ||
+                      Boolean(
+                        item.children?.some((child) =>
+                          isNavigationItemActive(child.href, pathname, hash),
+                        ),
+                      )
                         ? styles.active
                         : undefined
                     }
                     href={item.href}
-                    onClick={closeMenu}
+                    onClick={() => {
+                      syncSamePageHash(item.href);
+                      closeMenu();
+                    }}
                   >
                     {item.label}
                   </Link>
@@ -130,7 +138,13 @@ export function MobileNavigation() {
                   >
                     {item.children.map((child) => (
                       <li key={child.href}>
-                        <Link href={child.href} onClick={closeMenu}>
+                        <Link
+                          href={child.href}
+                          onClick={() => {
+                            syncSamePageHash(child.href);
+                            closeMenu();
+                          }}
+                        >
                           {child.label}
                         </Link>
                       </li>

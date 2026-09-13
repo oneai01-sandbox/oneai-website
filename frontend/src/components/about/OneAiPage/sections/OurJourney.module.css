@@ -48,7 +48,7 @@
   color: var(--color-navy);
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   letter-spacing: 0.005em;
-  line-height: 0.98;
+  line-height: 1.18;
 }
 
 .heading h2 span {

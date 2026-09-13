@@ -15,10 +15,12 @@ export const navigationItems: NavigationItem[] = [
     label: "Product",
     href: "/product/axis-one",
     children: [
-      { label: "Axis ONE", href: "/product/axis-one" },
-      { label: "Architecture", href: "/product/axis-one#architecture" },
-      { label: "Core Capabilities", href: "/product/axis-one#capabilities" },
-      { label: "Deployment", href: "/product/axis-one#deployment" },
+      { label: "AxisONE", href: "/product/axis-one" },
+      { label: "Overview", href: "/product/axis-one#overview" },
+      {
+        label: "Product Details",
+        href: "/product/axis-one#product-details",
+      },
     ],
   },
   {
@@ -49,3 +51,54 @@ export const demoCta = {
   label: "Request a Demo",
   href: "/request-demo",
 } as const;
+
+export function isNavigationItemActive(
+  href: string,
+  pathname: string,
+  hash: string,
+) {
+  const [path, anchor] = href.split("#");
+  const currentHash = hash === "#" ? "" : hash;
+
+  if (anchor) {
+    return (
+      pathname === path &&
+      (currentHash === `#${anchor}` || currentHash.startsWith(`#${anchor}/`))
+    );
+  }
+
+  if (path === "/") {
+    return pathname === "/";
+  }
+
+  if (pathname !== path && !pathname.startsWith(`${path}/`)) {
+    return false;
+  }
+
+  return currentHash === "";
+}
+
+export function syncSamePageHash(href: string) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  const [path, anchor] = href.split("#");
+
+  if (window.location.pathname !== path) {
+    return;
+  }
+
+  const nextHash = anchor ? `#${anchor}` : "";
+
+  if (window.location.hash === nextHash) {
+    return;
+  }
+
+  window.history.replaceState(
+    null,
+    "",
+    `${path}${window.location.search}${nextHash}`,
+  );
+  window.dispatchEvent(new HashChangeEvent("hashchange"));
+}

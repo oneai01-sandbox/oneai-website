@@ -1,0 +1,109 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #02060c;
+}
+
+.visual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.visual::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(2 8 16 / 68%) 0%,
+      rgb(2 8 16 / 32%) 36%,
+      rgb(2 8 16 / 6%) 62%,
+      rgb(2 8 16 / 34%) 100%
+    ),
+    linear-gradient(0deg, rgb(2 8 16 / 42%) 0%, transparent 46%);
+  content: "";
+  pointer-events: none;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center 46%;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  width: min(100% - (var(--space-6) * 2), var(--content-max-width));
+  min-height: 100svh;
+  padding-top: calc(var(--header-height) + var(--crumb-height));
+}
+
+.copy {
+  max-width: 38rem;
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.title {
+  margin: 0;
+  color: var(--color-white);
+  font-size: clamp(3.25rem, 6vw, 5rem);
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.tagline {
+  margin: var(--space-5) 0 0;
+  color: rgb(255 255 255 / 82%);
+  font-size: clamp(1.25rem, 2.1vw, 1.9rem);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.tagline span {
+  display: block;
+}
+
+@media (max-width: 52rem) {
+  .visual::after {
+    background:
+      linear-gradient(180deg, rgb(2 8 16 / 36%) 0%, rgb(2 8 16 / 8%) 38%),
+      linear-gradient(0deg, rgb(2 8 16 / 72%) 0%, rgb(2 8 16 / 18%) 48%);
+  }
+
+  .section {
+    align-items: flex-start;
+  }
+
+  .inner {
+    width: min(100% - (var(--space-4) * 2), var(--content-max-width));
+    min-height: 0;
+  }
+
+  .copy {
+    max-width: 34rem;
+    padding-block: clamp(2.25rem, 8vw, 3.25rem) var(--space-6);
+  }
+
+  .title {
+    font-size: clamp(3rem, 9vw, 4.25rem);
+  }
+
+  .tagline {
+    font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+  }
+}
+
+@media (max-width: 34rem) {
+  .title {
+    font-size: clamp(2.75rem, 13vw, 3.5rem);
+  }
+}

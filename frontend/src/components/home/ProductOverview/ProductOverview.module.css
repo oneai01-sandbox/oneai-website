@@ -1,6 +1,7 @@
 .section {
   position: relative;
   overflow: hidden;
+  scroll-margin-top: calc(var(--header-height) + var(--crumb-height));
   padding-block: clamp(4.5rem, 8vw, 7rem);
   background:
     radial-gradient(
@@ -41,6 +42,24 @@
   font-size: clamp(3.25rem, 6vw, 5rem);
   letter-spacing: -0.055em;
   line-height: 1.05;
+  white-space: nowrap;
+}
+
+.containerStacked {
+  grid-template-columns: minmax(20rem, 40fr) minmax(0, 60fr);
+}
+
+.copyStacked {
+  max-width: 36rem;
+}
+
+.copy .stackedTitle {
+  white-space: normal;
+  font-size: clamp(2.35rem, 4.4vw, 3.75rem);
+}
+
+.copy .stackedTitle span {
+  display: block;
   white-space: nowrap;
 }
 
@@ -430,6 +449,10 @@
 
   .copy h2 {
     font-size: clamp(3rem, 9vw, 4.25rem);
+  }
+
+  .copy .stackedTitle {
+    font-size: clamp(2.35rem, 7.2vw, 3.25rem);
   }
 
   .tagline {
