@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 
-import { PlaceholderPage } from "@/components/common/PlaceholderPage";
+import { HealthcarePage } from "@/components/case-studies/HealthcarePage/HealthcarePage";
 import { createPageMetadata } from "@/config/site";
 
-export const metadata: Metadata = createPageMetadata("Healthcare");
+export const metadata: Metadata = createPageMetadata(
+  "Healthcare Intelligence",
+  "ONE AI Healthcare supports medical teams by connecting patient records, voice-based inputs, and AI-assisted documentation into a more efficient clinical workflow.",
+);
 
-export default function HealthcarePage() {
-  return (
-    <PlaceholderPage
-      eyebrow="Case studies / Healthcare"
-      title="Healthcare"
-      description="Verified healthcare applications and examples will be added here."
-    />
-  );
+export default function HealthcareRoute() {
+  return <HealthcarePage />;
 }

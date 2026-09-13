@@ -1,0 +1,68 @@
+.heroImage {
+  object-position: 72% 48%;
+}
+
+.heroCopy {
+  max-width: 50rem;
+}
+
+.heroHeadline {
+  max-width: 32rem;
+}
+
+.heroDescription {
+  max-width: 34rem;
+}
+
+.heroCopy .heroTitle {
+  max-width: 100%;
+}
+
+@media (min-width: 52.01rem) {
+  .overviewInner {
+    grid-template-columns: minmax(18rem, 1fr) minmax(0, 1fr);
+  }
+}
+
+.overviewCopy {
+  max-width: 38rem;
+}
+
+.overviewCopy .overviewTitle {
+  font-size: clamp(1.85rem, 3.4vw, 2.85rem);
+  line-height: 1.12;
+}
+
+.demoLead .demoHeadline {
+  white-space: normal;
+}
+
+@media (max-width: 52rem) {
+  .heroHeadlineBreak,
+  .overviewTitleBreak {
+    display: none;
+  }
+
+  .heroCopy .heroTitle {
+    font-size: clamp(2.35rem, 11.2vw, 5rem);
+  }
+}
+
+@media (max-width: 40rem) {
+  .heroCopy .heroTitle {
+    font-size: clamp(2.05rem, 9.6vw, 2.85rem);
+  }
+
+  .ctaCopy .ctaTitle {
+    max-width: none;
+  }
+}
+
+.ctaInner {
+  grid-template-columns: minmax(24rem, 1.95fr) minmax(16rem, 0.85fr);
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.ctaCopy .ctaTitle {
+  max-width: 36rem;
+}
