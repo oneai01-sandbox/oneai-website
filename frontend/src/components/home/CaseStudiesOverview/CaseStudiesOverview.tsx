@@ -40,17 +40,28 @@ const caseStudies = [
   },
 ];
 
-export function CaseStudiesOverview() {
+interface CaseStudiesOverviewProps {
+  headingLevel?: "h1" | "h2";
+}
+
+export function CaseStudiesOverview({
+  headingLevel = "h2",
+}: CaseStudiesOverviewProps) {
+  const Title = headingLevel;
+
   return (
-    <section className={styles.section} aria-labelledby="case-studies-title">
+    <section
+      className={`${styles.section} ${headingLevel === "h1" ? styles.page : ""}`}
+      aria-labelledby="case-studies-title"
+    >
       <Container>
         <div className={styles.heading}>
           <p className={styles.eyebrow}>Case studies</p>
           <div>
-            <h2 id="case-studies-title">
+            <Title className={styles.title} id="case-studies-title">
               <span>Built for</span>
               <span>real-world impact.</span>
-            </h2>
+            </Title>
             <p>
               Explore how ONE AI brings real-time intelligence to machines,
               operations, and critical workflows.
