@@ -35,10 +35,6 @@ export function LocationSection() {
             </dd>
           </div>
           <div className={styles.infoItem}>
-            <dt>Phone</dt>
-            <dd>{siteContact.phone}</dd>
-          </div>
-          <div className={styles.infoItem}>
             <dt>Business Hours</dt>
             <dd>{siteContact.businessHours}</dd>
           </div>
