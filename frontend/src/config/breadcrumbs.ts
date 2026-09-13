@@ -18,8 +18,7 @@ function normalizePath(path: string) {
 }
 
 function sectionRoot(item: NavigationItem) {
-  const segment = item.href.split("/").filter(Boolean)[0];
-  return segment ? `/${segment}` : item.href;
+  return item.href;
 }
 
 function fallbackLabel(path: string) {
