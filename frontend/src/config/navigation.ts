@@ -36,10 +36,11 @@ export const navigationItems: NavigationItem[] = [
   },
   {
     label: "Support",
-    href: "/support",
+    href: "/support/contact",
     children: [
       { label: "Contact Us", href: "/support/contact" },
-      { label: "Technical Support", href: "/support/technical-support" },
+      /** TODO: Technical Support 숨김 제거 */
+      // { label: "Technical Support", href: "/support/technical-support" },
     ],
   },
 ];

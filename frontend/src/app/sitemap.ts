@@ -17,7 +17,6 @@ const routes = [
   "/case-studies/smart-factory",
   "/case-studies/industrial-safety",
   "/case-studies/healthcare",
-  "/support",
   "/support/contact",
   "/support/technical-support",
   "/request-demo",
