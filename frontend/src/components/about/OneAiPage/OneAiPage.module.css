@@ -1,0 +1,42 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* 1. 회사 소개말 섹션 (PlaceholderPage 디자인 100% 동일 적용) */
+.introSection {
+  padding-block: clamp(5rem, 10vw, 8rem);
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.introContent {
+  max-width: 48rem;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-4);
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: 0.01em;
+  line-height: 0.98;
+}
+
+.description {
+  max-width: 38rem;
+  margin: var(--space-6) 0 0;
+  color: var(--color-muted);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
