@@ -1,0 +1,27 @@
+.heroImage {
+  object-position: 78% 52%;
+}
+
+.heroCopy,
+.heroDescription {
+  max-width: 48rem;
+}
+
+.overviewLead {
+  max-width: none;
+}
+
+.ctaInner {
+  grid-template-columns: minmax(24rem, 1.95fr) minmax(16rem, 0.85fr);
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.ctaCopy .ctaTitle {
+  max-width: 36rem;
+}
+
+@media (max-width: 40rem) {
+  .ctaCopy .ctaTitle {
+    max-width: none;
+  }
+}
