@@ -18,31 +18,31 @@ type Partner = {
 export const partners: Partner[] = [
   {
     name: "Intel",
-    logo: null,
+    logo: "/intel-header-logo.svg",
     maxWidth: "7rem",
     maxHeight: "3rem",
   },
   {
     name: "OPEN Group",
-    logo: null,
+    logo: "/open-group-logo.png",
     maxWidth: "9rem",
     maxHeight: "3.25rem",
   },
   {
     name: "Hansol",
-    logo: null,
+    logo: "/hansol-logo.png",
     maxWidth: "7.5rem",
     maxHeight: "3.25rem",
   },
   {
     name: "IGIS Asset Management",
-    logo: null,
+    logo: "/igis-logo.jpg",
     maxWidth: "10.5rem",
     maxHeight: "3.5rem",
   },
   {
     name: "Jahyang Hospital",
-    logo: null,
+    logo: "/jahyang-logo.png",
     maxWidth: "9rem",
     maxHeight: "4rem",
   },
@@ -58,14 +58,20 @@ function PartnerMark({ partner }: { partner: Partner }) {
   }
 
   return (
-    <Image
-      className={styles.logo}
-      src={partner.logo}
-      alt={partner.name}
-      width={240}
-      height={100}
-      sizes="(max-width: 40rem) 35vw, (max-width: 52rem) 24vw, 16vw"
-    />
+    <>
+      <Image
+        className={styles.logo}
+        src={partner.logo}
+        alt={partner.name}
+        width={240}
+        height={100}
+        style={{ width: "auto", height: "auto" }}
+        sizes="(max-width: 40rem) 35vw, (max-width: 52rem) 24vw, 16vw"
+      />
+      <span className={styles.hoverName} aria-hidden="true">
+        {partner.name}
+      </span>
+    </>
   );
 }
 
