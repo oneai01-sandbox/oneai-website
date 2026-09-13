@@ -8,6 +8,7 @@ interface PlaceholderPageProps {
   title: string;
   description: string;
   children?: ReactNode;
+  className?: string;
 }
 
 export function PlaceholderPage({
@@ -15,9 +16,10 @@ export function PlaceholderPage({
   title,
   description,
   children,
+  className,
 }: PlaceholderPageProps) {
   return (
-    <section className={styles.page}>
+    <section className={`${styles.page} ${className || ""}`.trim()}>
       <Container>
         <div className={styles.intro}>
           <p className={styles.eyebrow}>{eyebrow}</p>

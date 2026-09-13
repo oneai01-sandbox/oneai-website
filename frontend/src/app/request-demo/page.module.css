@@ -1,0 +1,62 @@
+.page {
+  --placeholder-intro-width: 54rem;
+  --placeholder-desc-width: 50rem;
+  --placeholder-title-color: var(--color-white);
+  --placeholder-desc-color: rgb(255 255 255 / 72%);
+  background-color: var(--color-navy);
+  background-image: url("/requestdemo-bgr.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.actionArea {
+  margin-top: var(--space-8, 3rem);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 14rem;
+  min-height: 3.25rem;
+  padding: 0.8rem 1.25rem;
+  border: 1px solid rgb(255 255 255 / 30%);
+  color: var(--color-white);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  background: transparent;
+  box-sizing: border-box;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.button:hover,
+.button:focus-visible {
+  border-color: var(--color-accent);
+  background: rgb(44 159 190 / 20%);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.arrow {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform var(--transition-fast);
+}
+
+.button:hover .arrow,
+.button:focus-visible .arrow {
+  transform: translateX(0.35rem);
+}
+

@@ -1,9 +1,10 @@
 .page {
   padding-block: clamp(5rem, 10vw, 9rem);
+  background-color: var(--placeholder-bg, transparent);
 }
 
 .intro {
-  max-width: 48rem;
+  max-width: var(--placeholder-intro-width, 48rem);
 }
 
 .eyebrow {
@@ -17,16 +18,16 @@
 
 .intro h1 {
   margin: 0;
-  color: var(--color-navy);
+  color: var(--placeholder-title-color, var(--color-navy));
   font-size: clamp(2.5rem, 6vw, 5rem);
   letter-spacing: 0.01em;
   line-height: 0.98;
 }
 
 .description {
-  max-width: 38rem;
+  max-width: var(--placeholder-desc-width, 38rem);
   margin: var(--space-6) 0 0;
-  color: var(--color-muted);
+  color: var(--placeholder-desc-color, var(--color-muted));
   font-size: 1.125rem;
   line-height: 1.7;
 }
