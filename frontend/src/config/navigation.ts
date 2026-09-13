@@ -6,9 +6,9 @@ export const navigationItems: NavigationItem[] = [
     href: "/about/one-ai",
     children: [
       { label: "ONE AI", href: "/about/one-ai" },
-      { label: "Leadership", href: "/about/leadership" },
+      // { label: "Leadership", href: "/about/leadership" },
       { label: "Partners & Alliances", href: "/about/partners" },
-      { label: "Newsroom", href: "/about/newsroom" },
+      // { label: "Newsroom", href: "/about/newsroom" },
     ],
   },
   {
