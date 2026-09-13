@@ -3,18 +3,21 @@ import Image from 'next/image';
 import styles from './Signboard.module.css';
 
 interface SignboardProps {
+  className?: string;
   platformTitle?: string;
   tagline?: string;
 }
 
 export const Signboard: React.FC<SignboardProps> = ({
+  className = '',
   platformTitle = 'Industrial Edge Intelligence Platform',
   tagline = 'AI Technology for a Safer, Smarter, Healthier World',
 }) => {
   return (
-    <div className={styles.boardWrapper}>
-      {/* 1. 벽면에 퍼지는 네온 블루 백라이트 글로우 */}
-      <div className={styles.neonBacklight} />
+    <section className={`${styles.section} ${className}`.trim()} aria-label="ONE AI Signboard">
+      <div className={styles.boardWrapper}>
+        {/* 1. 벽면에 퍼지는 네온 블루 백라이트 글로우 */}
+        <div className={styles.neonBacklight} />
 
       {/* 2. 메인 현판 플레이트 */}
       <div className={styles.plaque}>
@@ -32,6 +35,9 @@ export const Signboard: React.FC<SignboardProps> = ({
           {/* 중앙 양각 로고 및 메인 브랜드 */}
           <div className={styles.brandGroup}>
             <div className={styles.symbolWrapper}>
+              {/* 로고 뒷배경 분리용 밝은 톤의 백라이트 조명 슬롯 */}
+              <div className={styles.logoBackdropGlow} />
+
               <Image
                 src="/one-ai-logo-ver1.png"
                 alt="ONE AI - Intelligence Unified"
@@ -51,7 +57,8 @@ export const Signboard: React.FC<SignboardProps> = ({
         </div>
       </div>
     </div>
-  );
+  </section>
+);
 };
 
 export default Signboard;

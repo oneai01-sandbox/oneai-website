@@ -1,5 +1,19 @@
 /* Signboard.module.css */
 
+/* 0. 섹션 래퍼: 타일 벽면 느낌의 다크 슬레이트 배경과 상단 스포트라이트 조명 */
+.section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 20%, #2b3543 0%, #11161d 60%, #090c10 100%);
+  padding: 30px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
 /* 전체 래퍼: 벽면 그림자와 백라이트 위치 기준 */
 .boardWrapper {
   position: relative;
@@ -118,12 +132,12 @@
   text-align: center;
 }
 
-/* 브랜드 로고 영역 */
+/* 브랜드 로고 영역: 위치를 아래로 살짝 내림 */
 .brandGroup {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 70px;
 }
 
 .logoRow {
@@ -134,19 +148,27 @@
 }
 
 .symbolWrapper {
+  position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 620px;
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 24px rgba(56, 189, 248, 0.25));
+  /* 검은색 텍스트와 심볼 외곽선을 밝게 감싸는 다층 밝은 톤 광택 및 섀도우 */
+  filter: 
+    drop-shadow(0 0 2px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.7))
+    drop-shadow(0 0 24px rgba(186, 230, 253, 0.55))
+    drop-shadow(0 8px 24px rgba(0, 0, 0, 0.75));
 }
 
 .brandLogoImage {
+  position: relative;
+  z-index: 1;
   display: block;
   width: auto;
-  height: clamp(80px, 16vw, 135px);
-  max-width: 90%;
+  height: clamp(95px, 18vw, 180px);
+  max-width: 95%;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
@@ -219,6 +241,11 @@
 
 /* 반응형 모바일 축소 대응 */
 @media (max-width: 768px) {
+  .section {
+    padding: clamp(2.5rem, 5vw, 4rem) 16px;
+    min-height: auto;
+  }
+
   .boardWrapper {
     aspect-ratio: auto;
   }
@@ -228,13 +255,17 @@
     gap: 20px;
   }
 
+  .brandGroup {
+    margin-top: 14px;
+  }
+
   .symbolWrapper {
     width: 100%;
-    max-width: 320px;
+    max-width: 380px;
   }
 
   .brandLogoImage {
-    height: clamp(54px, 14vw, 84px);
+    height: clamp(65px, 16vw, 100px);
   }
 
   .brandTitle {

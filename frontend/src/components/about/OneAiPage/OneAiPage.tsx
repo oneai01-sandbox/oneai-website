@@ -12,18 +12,8 @@ export function OneAiPage() {
       {/* 1. 회사 소개말 */}
       <CompanyIntro />
 
-      <div style={{
-      width: '100%',
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      /* 타일 벽면 느낌의 다크 슬레이트 배경과 상단 스포트라이트 조명 */
-      background: 'radial-gradient(circle at 35% 20%, #2b3543 0%, #11161d 60%, #090c10 100%)',
-      padding: '30px'
-    }}>
+      {/* Signboard 쇼케이스 */}
       <Signboard />
-    </div>
 
       {/* Glass Card 쇼케이스 */}
       <GlassCard />

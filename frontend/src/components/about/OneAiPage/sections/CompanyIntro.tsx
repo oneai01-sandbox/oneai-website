@@ -15,8 +15,8 @@ export function CompanyIntro() {
               className={styles.logo}
               src="/one-ai-logo-ver1.png"
               alt="ONE AI"
-              width={272}
-              height={104}
+              width={480}
+              height={160}
               priority
             />
           </h1>

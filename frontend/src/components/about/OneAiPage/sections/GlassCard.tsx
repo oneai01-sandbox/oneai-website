@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { Container } from '@/components/common/Container';
 import styles from './GlassCard.module.css';
 
 interface GlassCardProps {
@@ -9,27 +10,24 @@ interface GlassCardProps {
 }
 
 export const GlassCard: React.FC<GlassCardProps> = ({ 
-    className = '', 
-    platformTitle = 'Industrial Edge Intelligence Platform', 
-    tagline = 'AI Technology for a Safer, Smarter, Healthier World'    
+  className = '', 
+  platformTitle = 'Industrial Edge Intelligence Platform', 
+  tagline = 'Introducing ONE AI, the only domestic company with full-stack On-Device Physical AI, and one of Asia’s fastest-growing industrial edge AI companies.'    
 }) => {
   return (
     <section
       className={`${styles.section} ${className}`.trim()}
-      aria-label="ONE AI Platform Showcase"
+      aria-labelledby="platform-showcase-title"
     >
-      <div className={styles.cardContainer}>
-        {/* 1. 유리 카드 표면 사선 반사광 레이어 */}
-        <div className={styles.specularReflection} />
+      <Container className={styles.container}>
+        {/* 좌측: 글래스 카드 (4:3 비율) */}
+        <div className={styles.cardContainer}>
+          {/* 4개의 모서리 메탈 볼트 (Standoffs) */}
+          <div className={`${styles.bolt} ${styles.boltTopLeft}`} />
+          <div className={`${styles.bolt} ${styles.boltTopRight}`} />
+          <div className={`${styles.bolt} ${styles.boltBottomLeft}`} />
+          <div className={`${styles.bolt} ${styles.boltBottomRight}`} />
 
-        {/* 4개의 모서리 메탈 볼트 (Standoffs) */}
-        <div className={`${styles.bolt} ${styles.boltTopLeft}`} />
-        <div className={`${styles.bolt} ${styles.boltTopRight}`} />
-        <div className={`${styles.bolt} ${styles.boltBottomLeft}`} />
-        <div className={`${styles.bolt} ${styles.boltBottomRight}`} />
-
-        {/* 2. 카드 내부 안쪽 테두리 라인 프레임 */}
-        
           <div className={styles.centerContent}>
             <div className={styles.logoWrapper}>
               {/* 로고 뒤 네온 블루 글로우 효과 */}
@@ -44,19 +42,23 @@ export const GlassCard: React.FC<GlassCardProps> = ({
                   height={160}
                   className={styles.brandLogoImage}
                   priority
+                  style={{ width: "auto", height: "auto" }}
                 />
               </div>
             </div>
-
-            {/* 하단 플랫폼 설명 문구 */}
-          {/* <div className={styles.descriptionGroup}>
-            <p className={styles.platformText}>{platformTitle}</p>
-            <p className={styles.taglineText}>{tagline}</p>
-          </div> */}
-
           </div>
-        
-      </div>
+        </div>
+
+        {/* 우측: platformTitle 및 tagline 영역 */}
+        <div className={styles.infoArea}>
+          <h2 className={styles.platformTitle} id="platform-showcase-title">
+            {platformTitle}
+          </h2>
+          <p className={styles.taglineText}>
+            {tagline}
+          </p>
+        </div>
+      </Container>
     </section>
   );
 };
