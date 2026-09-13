@@ -17,7 +17,8 @@ export default function RequestDemoPage() {
       className={styles.page}
       eyebrow="Request a Demo"
       title="See what edge intelligence can do."
-      description="A demo request flow will be connected to the ONE AI backend in a future release. No form submission is active yet."
+      description="We deliver site-specific demonstrations tailored to your industrial requirements. 
+                    Please get in touch with our team via the Contact Us below."
     >
       <div className={styles.actionArea}>
         <Link className={styles.button} href={siteRoutes.contact}>

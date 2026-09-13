@@ -6,51 +6,91 @@ import styles from "./OurJourney.module.css";
 const journeyEvents: TimelineEvent[] = [
   {
     year: "2026",
-    period: "July",
-    title: "Selected for the 6th NEXT Challenge",
+    period: "07",
+    title:
+      "Selected for the 6th NEXT Challenge",
     description:
-      "Program by Ministry of Land, Infrastructure and Transport",
+      "Startup-planning program, Ministry of Land, Infrastructure and Transport",
     tag: "Funding",
   },
   {
     year: "2026",
-    period: "July",
-    title: "In Progress for TIPS (Tech Incubator Program for Startup)",
+    period: "07",
+    title:
+      "TIPS in progress",
     description:
-      "Ministry of SMEs and Startups",
+      "Tech Incubator Program for Startup by the Ministry of SMEs and Startups",
     tag: "Funding",
   },
   {
     year: "2026",
-    period: "July",
-    title: "Participated in the Monozukuri World Exhibition in Japan",
+    period: "07",
+    title:
+      "Exhibited at Monozukuri World in Japan",
     description:
-      "Collaboration with OPEN group",
+      "Together with OPEN Group",
     tag: "Exhibition",
   },
   {
     year: "2026",
-    period: "June",
-    title: "MOU with Kyungshin Integrated Logistics Co.",
+    period: "06",
+    title:
+      "MOU signed with Kyungshin Total Logistics",
     description:
-      "Development of a container loading robot",
+      "Container-loading robot development",
     tag: "Partnership",
   },
   {
     year: "2026",
-    period: "May",
-    title: "Selected for the Promising Tech Industry Support Project for Middle East Expansion",
+    period: "05",
+    title:
+      "Selected for the SME support program for promising tech industries expanding into the Middle East",
     description:
-      "Korea SMEs and Startups Agency (KOSME)",
+      "By the Korea SMEs and Startups Agency",
     tag: "Funding",
   },
   {
     year: "2026",
-    period: "May",
-    title: "Selected for the Intel (Intellectuals) program among the Global Corporate Collaboration Program",
+    period: "05",
+    title:
+      "Selected for the Intel (Ingenius) program within the Global Corporate Collaboration Program",
     description:
-      "Ministry of SMEs and Startups",
+      "By the Ministry of SMEs and Startups",
     tag: "Funding",
+  },
+  {
+    year: "2026",
+    period: "04",
+    title:
+      "Venture-company registration completed",
+    description: "",
+    tag: "Company",
+  },
+  {
+    year: "2026",
+    period: "02",
+    title:
+      "Collaboration talks with OPEN Group in Japan",
+    description:
+      "Technical support for the Japanese market",
+    tag: "Partnership",
+  },
+  {
+    year: "2026",
+    period: "02",
+    title:
+      "MOU signed with Hansol Logistics",
+    description:
+      "NCM battery early-safety-detection system development",
+    tag: "Partnership",
+  },
+  {
+    year: "2026",
+    period: "01.14",
+    title:
+      "ONE AI founded",
+    description: "",
+    tag: "Company",
   },
 ];
 

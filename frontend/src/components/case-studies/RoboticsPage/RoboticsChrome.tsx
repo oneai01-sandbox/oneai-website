@@ -7,16 +7,23 @@ import { siteRoutes } from "@/config/site";
 
 import styles from "./RoboticsChrome.module.css";
 
-const sections = [
+const defaultSections = [
   { id: "overview", label: "Overview" },
   { id: "demo", label: "Demo" },
   { id: "capabilities", label: "Capabilities" },
 ] as const;
 
-export function RoboticsChrome() {
-  const [activeId, setActiveId] = useState<(typeof sections)[number]["id"]>(
-    "overview",
-  );
+export type CaseStudySection = {
+  id: string;
+  label: string;
+};
+
+export function RoboticsChrome({
+  sections = defaultSections,
+}: {
+  sections?: readonly CaseStudySection[];
+} = {}) {
+  const [activeId, setActiveId] = useState(sections[0]?.id ?? "overview");
   const [open, setOpen] = useState(true);
   const [onDark, setOnDark] = useState(true);
 
@@ -32,7 +39,7 @@ export function RoboticsChrome() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
         if (visible?.target.id) {
-          setActiveId(visible.target.id as (typeof sections)[number]["id"]);
+          setActiveId(visible.target.id);
         }
       },
       { rootMargin: "-35% 0px -50% 0px", threshold: [0, 0.2, 0.45, 0.7] },
@@ -61,9 +68,9 @@ export function RoboticsChrome() {
       sectionObserver.disconnect();
       darkObserver.disconnect();
     };
-  }, []);
+  }, [sections]);
 
-  const goToSection = (id: (typeof sections)[number]["id"]) => {
+  const goToSection = (id: string) => {
     document
       .getElementById(id)
       ?.scrollIntoView({ behavior: "smooth", block: "start" });

@@ -1,0 +1,227 @@
+.overviewVideoFrame {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.overviewVideo {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.capabilities.capabilities {
+  background: var(--color-surface);
+}
+
+.capability.capability {
+  background: var(--color-white);
+}
+
+.workflow {
+  padding-block: clamp(4.5rem, 8vw, 7rem) clamp(5rem, 9vw, 8rem);
+  background: var(--color-white);
+  scroll-margin-top: calc(
+    var(--header-height) + var(--crumb-height) + var(--space-4)
+  );
+}
+
+.workflowIntro {
+  max-width: min(100%, 46rem);
+}
+
+.workflowTitlePhrase {
+  white-space: nowrap;
+}
+
+.workflowTrack {
+  --workflow-chevron: 1.35rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workflowStep {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.workflowStep:nth-child(1) {
+  z-index: 4;
+}
+
+.workflowStep:nth-child(2) {
+  z-index: 3;
+}
+
+.workflowStep:nth-child(3) {
+  z-index: 2;
+}
+
+.workflowChevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.75rem;
+  margin-right: calc(var(--workflow-chevron) * -1 + 3px);
+  padding-inline: calc(var(--workflow-chevron) + 0.35rem)
+    calc(var(--workflow-chevron) + 0.45rem);
+  background: var(--color-navy);
+  color: rgb(255 255 255 / 94%);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--workflow-chevron)) 0,
+    100% 50%,
+    calc(100% - var(--workflow-chevron)) 100%,
+    0 100%,
+    var(--workflow-chevron) 50%
+  );
+}
+
+.workflowStep:first-child .workflowChevron {
+  padding-left: 1rem;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--workflow-chevron)) 0,
+    100% 50%,
+    calc(100% - var(--workflow-chevron)) 100%,
+    0 100%
+  );
+}
+
+.workflowStep:last-child .workflowChevron {
+  margin-right: 0;
+}
+
+.workflowStep:nth-child(1) .workflowChevron {
+  background: color-mix(in srgb, var(--color-navy) 22%, var(--color-accent-dark));
+}
+
+.workflowStep:nth-child(2) .workflowChevron {
+  background: color-mix(in srgb, var(--color-navy) 48%, var(--color-accent-dark));
+}
+
+.workflowStep:nth-child(3) .workflowChevron {
+  background: color-mix(in srgb, var(--color-navy) 74%, var(--color-accent-dark));
+}
+
+.workflowStep:nth-child(4) .workflowChevron {
+  background: var(--color-navy);
+}
+
+.workflowIndex {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.workflowStem {
+  position: relative;
+  display: block;
+  width: 1px;
+  height: 1.35rem;
+  margin: 0 auto 0.85rem;
+  background: color-mix(in srgb, var(--color-navy) 28%, transparent);
+}
+
+.workflowStem::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-navy) 38%, transparent);
+  border-radius: 999px;
+  background: var(--color-white);
+  transform: translate(-50%, 50%);
+  content: "";
+}
+
+.workflowMedia {
+  position: relative;
+  overflow: hidden;
+  width: calc(100% - 1.1rem);
+  aspect-ratio: 16 / 9;
+  margin: 0 0.55rem var(--space-4);
+  background: #081525;
+}
+
+.workflowAsset {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.workflowStep h3 {
+  margin: 0 0.55rem;
+  color: var(--color-navy);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
+.workflowStep p {
+  margin: 0.5rem 0.55rem 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 64rem) {
+  .workflowTrack {
+    grid-template-columns: 1fr;
+    max-width: 36rem;
+    --workflow-chevron: 1.1rem;
+  }
+
+  .workflowStep {
+    padding-bottom: 2rem;
+  }
+
+  .workflowStep:last-child {
+    padding-bottom: 0;
+  }
+
+  .workflowChevron,
+  .workflowStep:first-child .workflowChevron,
+  .workflowStep:last-child .workflowChevron {
+    height: 2.75rem;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding-inline: 1rem calc(var(--workflow-chevron) + 0.55rem);
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--workflow-chevron)) 0,
+      100% 50%,
+      calc(100% - var(--workflow-chevron)) 100%,
+      0 100%
+    );
+  }
+
+  .workflowStem {
+    height: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .workflowMedia,
+  .workflowStep h3,
+  .workflowStep p {
+    margin-inline: 0;
+  }
+
+  .workflowMedia {
+    width: 100%;
+  }
+}
