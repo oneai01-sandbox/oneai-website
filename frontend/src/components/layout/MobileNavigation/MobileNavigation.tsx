@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { brandLabel } from "@/components/common/BrandName";
 import {
   demoCta,
   isNavigationItemActive,
@@ -145,7 +146,7 @@ export function MobileNavigation() {
                             closeMenu();
                           }}
                         >
-                          {child.label}
+                          {brandLabel(child.label)}
                         </Link>
                       </li>
                     ))}

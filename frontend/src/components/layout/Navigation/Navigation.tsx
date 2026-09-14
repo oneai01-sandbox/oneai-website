@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { brandLabel } from "@/components/common/BrandName";
 import {
   demoCta,
   isNavigationItemActive,
@@ -111,7 +112,7 @@ export function Navigation() {
                           event.currentTarget.blur();
                         }}
                       >
-                        {child.label}
+                        {brandLabel(child.label)}
                       </Link>
                     </li>
                   ))}

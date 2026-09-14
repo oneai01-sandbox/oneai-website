@@ -40,8 +40,9 @@
   margin: 0;
   color: var(--color-navy);
   font-size: clamp(3.25rem, 6vw, 5rem);
-  letter-spacing: -0.055em;
+  letter-spacing: -0.02em;
   line-height: 1.05;
+  text-transform: none;
   white-space: nowrap;
 }
 
@@ -58,7 +59,7 @@
   font-size: clamp(2.35rem, 4.4vw, 3.75rem);
 }
 
-.copy .stackedTitle span {
+.copy .stackedTitle > span {
   display: block;
   white-space: nowrap;
 }

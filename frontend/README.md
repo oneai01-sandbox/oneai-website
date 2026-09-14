@@ -33,8 +33,6 @@ src/
 
 ## Env Variables
 
-`.env.example`을 참고해 로컬 환경의 `.env.local`을 설정할 수 있습니다.
-
 ```env
 NEXT_PUBLIC_API_BASE_URL=https://api.one-ai.dev/api
 ```

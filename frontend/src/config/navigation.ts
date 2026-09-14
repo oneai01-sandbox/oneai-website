@@ -15,7 +15,7 @@ export const navigationItems: NavigationItem[] = [
     label: "Product",
     href: "/product/axis-one",
     children: [
-      { label: "AxisONE", href: "/product/axis-one" },
+      { label: "Axis.ONE", href: "/product/axis-one" },
       { label: "Overview", href: "/product/axis-one#overview" },
       {
         label: "Product Details",

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { brandLabel } from "@/components/common/BrandName";
 import { getBreadcrumbItems } from "@/config/breadcrumbs";
 
 import styles from "./Breadcrumb.module.css";
@@ -49,7 +50,11 @@ export function Breadcrumb() {
             key={`${item.label}-${item.href ?? "current"}`}
             aria-current={item.href ? undefined : "page"}
           >
-            {item.href ? <Link href={item.href}>{item.label}</Link> : item.label}
+            {item.href ? (
+              <Link href={item.href}>{brandLabel(item.label)}</Link>
+            ) : (
+              brandLabel(item.label)
+            )}
           </li>
         ))}
       </ol>

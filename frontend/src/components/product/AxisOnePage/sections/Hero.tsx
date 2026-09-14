@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { BrandName } from "@/components/common/BrandName";
 import { Container } from "@/components/common/Container";
 
 import styles from "./Hero.module.css";
@@ -21,7 +22,7 @@ export function Hero() {
       <Container className={styles.inner}>
         <div className={styles.copy}>
           <h1 className={styles.title} id="axis-one-title">
-            AXIS ONE
+            <BrandName />
           </h1>
           <p className={styles.tagline}>
             <span>Industrial intelligence,</span>

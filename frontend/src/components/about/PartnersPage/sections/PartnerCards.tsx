@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/common/Container";
+import { FoundingTeamTrackRecords } from "@/components/partners/FoundingTeamTrackRecords";
 import { siteRoutes } from "@/config/site";
 
 import styles from "./PartnerCards.module.css";
@@ -9,9 +10,7 @@ const partners = [
   { name: "Intel", description: "Selected for Intel Ingenius program as global innovation partner", image: "/intel-header-logo.svg" },
   { name: "OPEN Group", description: "Collaborate and Technical support for the Japanese market", image: "/open-group-logo.png" },
   { name: "Hansol", description: "MOU Signed on the Development of a Pre-Safety Detection System", image: "/hansol-logo.png" },
-  { name: "IGIS Asset Management", description: "", image: "/igis-logo.jpg" },
-  { name: "Jayang Hospital", description: "Proposal for AI Solution to Achieve Operational Efficiency", image: "/jayang-logo.jpg" },
-  { name: "Together with us", description: "Contact us to collaborate", href: siteRoutes.contact, isCta: true },
+  { name: "Be together with us", description: "Contact us to collaborate", href: siteRoutes.contact, isCta: true },
 ];
 
 export function PartnerCards() {
@@ -57,6 +56,7 @@ export function PartnerCards() {
             );
           })}
         </ul>
+        <FoundingTeamTrackRecords />
       </Container>
     </section>
   );

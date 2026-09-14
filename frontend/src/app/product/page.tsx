@@ -13,7 +13,7 @@ export default function ProductPage() {
     <PlaceholderPage
       eyebrow="Product"
       title="Industrial intelligence, at the edge."
-      description="Explore Axis ONE for an overview of the product architecture, capabilities, and deployment considerations."
+      description="Explore Axis.ONE for an overview of the product architecture, capabilities, and deployment considerations."
     />
   );
 }

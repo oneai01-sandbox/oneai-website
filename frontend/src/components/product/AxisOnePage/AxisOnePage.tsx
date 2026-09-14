@@ -1,3 +1,4 @@
+import { BrandName } from "@/components/common/BrandName";
 import { ProductOverview } from "@/components/home/ProductOverview/ProductOverview";
 
 import { CaseStudies } from "./sections/CaseStudies";
@@ -19,7 +20,9 @@ export function AxisOnePage() {
         title={
           <>
             <span>The core of</span>
-            <span>AXIS ONE</span>
+            <span>
+              <BrandName />
+            </span>
           </>
         }
       />

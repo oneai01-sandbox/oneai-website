@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useId, useState } from "react";
 
+import { BrandName } from "@/components/common/BrandName";
 import { Container } from "@/components/common/Container";
 
 import { AbstractArchitecture } from "./AbstractArchitecture";
@@ -72,9 +73,11 @@ export function Details() {
       <Container className={styles.inner}>
         <div className={styles.intro}>
           <p className={styles.eyebrow}>Product details</p>
-          <h2 id="axis-one-details-title">Inside AxisONE</h2>
+          <h2 id="axis-one-details-title">
+            Inside <BrandName />
+          </h2>
           <p className={styles.description}>
-            Explore how AxisONE connects industrial data, edge AI inference,{" "}
+            Explore how <BrandName /> connects industrial data, edge AI inference,{" "}
             <br></br>
             and field operations through one unified system.
           </p>

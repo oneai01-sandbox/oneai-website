@@ -47,7 +47,7 @@
 
 .list {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: clamp(4rem, 8vw, 7rem) 0 0;
   padding: 1.75rem 0;
   border-top: 1px solid var(--color-border);
@@ -58,10 +58,11 @@
 .partner {
   display: flex;
   min-width: 0;
-  min-height: 7rem;
+  min-height: 8rem;
   align-items: center;
   justify-content: center;
-  padding: 1rem clamp(0.75rem, 2vw, 1.75rem);
+  overflow: visible;
+  padding: 1rem clamp(0.5rem, 1.4vw, 1.25rem);
   border-left: 1px solid var(--color-border);
 }
 
@@ -85,10 +86,12 @@
 
 .logo {
   display: block;
-  width: min(100%, var(--logo-max-width));
+  width: var(--logo-max-width);
+  max-width: none;
   height: auto;
   max-height: var(--logo-max-height);
   object-fit: contain;
+  object-position: center;
   transition: opacity var(--transition-normal), transform var(--transition-normal);
 }
 
@@ -133,6 +136,27 @@
   text-wrap: balance;
 }
 
+.seeMoreLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.35rem 0.25rem;
+  color: var(--color-navy);
+  font-size: clamp(0.95rem, 1.25vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color var(--transition-normal), gap var(--transition-normal);
+}
+
+.seeMoreLink:hover,
+.seeMoreLink:focus-visible {
+  color: var(--color-accent-dark);
+  gap: 0.7rem;
+}
+
 @media (max-width: 52rem) {
   .headingContent {
     grid-template-columns: 1fr;
@@ -144,10 +168,14 @@
   }
 
   .list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .partner:nth-child(4) {
+  .partner:nth-child(n + 3) {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .partner:nth-child(3) {
     border-left: 0;
   }
 }
@@ -181,17 +209,6 @@
 
   .partner:nth-child(-n + 2) {
     border-top: 0;
-  }
-
-  .partner:nth-child(4) {
-    border-left: 0;
-  }
-
-  .partner:last-child {
-    width: 50%;
-    grid-column: 1 / -1;
-    justify-self: center;
-    border-top: 1px solid var(--color-border);
   }
 
   .logoFallback {

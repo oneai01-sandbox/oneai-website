@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BrandName } from "@/components/common/BrandName";
 import { Container } from "@/components/common/Container";
 import { siteRoutes } from "@/config/site";
 
@@ -11,7 +12,7 @@ export function Cta() {
       <Container className={styles.inner}>
         <div className={styles.heading}>
           <h2 id="axis-one-cta-title">
-            Build your edge AI operation with AxisONE.
+            Build your edge AI operation with <BrandName />.
           </h2>
         </div>
 

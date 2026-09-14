@@ -25,26 +25,14 @@ export const partners: Partner[] = [
   {
     name: "OPEN Group",
     logo: "/open-group-logo.png",
-    maxWidth: "9rem",
-    maxHeight: "3.25rem",
+    maxWidth: "12rem",
+    maxHeight: "4.5rem",
   },
   {
     name: "Hansol",
     logo: "/hansol-logo.png",
-    maxWidth: "7.5rem",
-    maxHeight: "3.25rem",
-  },
-  {
-    name: "IGIS Asset Management",
-    logo: "/igis-logo.jpg",
-    maxWidth: "10.5rem",
-    maxHeight: "3.5rem",
-  },
-  {
-    name: "Jayang Hospital",
-    logo: "/jayang-logo.jpg",
-    maxWidth: "9rem",
-    maxHeight: "4rem",
+    maxWidth: "11rem",
+    maxHeight: "2.6rem",
   },
 ];
 
@@ -63,10 +51,9 @@ function PartnerMark({ partner }: { partner: Partner }) {
         className={styles.logo}
         src={partner.logo}
         alt={partner.name}
-        width={240}
-        height={100}
-        style={{ width: "auto", height: "auto" }}
-        sizes="(max-width: 40rem) 35vw, (max-width: 52rem) 24vw, 16vw"
+        width={480}
+        height={200}
+        sizes="(max-width: 40rem) 50vw, (max-width: 52rem) 36vw, 22vw"
       />
       <span className={styles.hoverName} aria-hidden="true">
         {partner.name}
@@ -117,6 +104,16 @@ export function PartnersSection() {
               </li>
             );
           })}
+          <li className={styles.partner}>
+            <Link
+              className={styles.seeMoreLink}
+              href="/about/partners"
+              aria-label="See more partners and alliances"
+            >
+              <span>See more</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </li>
         </ul>
       </Container>
     </section>

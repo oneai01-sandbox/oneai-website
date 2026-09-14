@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { BrandName } from "@/components/common/BrandName";
+
 import styles from "./Details.module.css";
 
 export function AbstractArchitecture() {
@@ -7,7 +9,7 @@ export function AbstractArchitecture() {
     <div className={styles.architecture}>
       <div className={styles.architectureCopy}>
         <p>
-          AxisONE connects cameras, sensors, robots, and field devices into a
+          <BrandName /> connects cameras, sensors, robots, and field devices into a
           unified edge AI workflow.
         </p>
         <p>
@@ -21,7 +23,7 @@ export function AbstractArchitecture() {
         <Image
           className={styles.architectureImage}
           src="/abstract-architecture.png"
-          alt="AxisONE abstract architecture connecting field devices, data collection, edge AI inference, industrial applications, and MLOps"
+          alt="Axis.ONE abstract architecture connecting field devices, data collection, edge AI inference, industrial applications, and MLOps"
           fill
           sizes="(max-width: 52rem) 90vw, 42vw"
         />

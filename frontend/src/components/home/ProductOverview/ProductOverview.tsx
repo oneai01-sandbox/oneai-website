@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
+import { BrandName } from "@/components/common/BrandName";
 import { Container } from "@/components/common/Container";
 
 import styles from "./ProductOverview.module.css";
@@ -41,7 +42,7 @@ type ProductOverviewProps = {
 };
 
 export function ProductOverview({
-  title = "AXIS ONE",
+  title = <BrandName />,
   headingId = "product-overview-title",
   sectionId,
   showLink = true,
@@ -101,7 +102,9 @@ export function ProductOverview({
           </p>
           {showLink ? (
             <Link className={styles.link} href="/product/axis-one">
-              <span>Discover Axis ONE</span>
+              <span>
+                Discover <BrandName />
+              </span>
               <span className={styles.arrow} aria-hidden="true">
                 →
               </span>
@@ -112,7 +115,7 @@ export function ProductOverview({
         <div
           className={styles.visual}
           role="group"
-          aria-label="Axis ONE platform principles"
+          aria-label="Axis.ONE platform principles"
         >
           {objects.map((object) => (
             <div

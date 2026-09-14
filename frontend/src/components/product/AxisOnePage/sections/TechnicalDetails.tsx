@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { BrandName } from "@/components/common/BrandName";
+
 import { siteRoutes } from "@/config/site";
 
 import styles from "./Details.module.css";
@@ -70,7 +72,7 @@ export function TechnicalDetails() {
       <div className={styles.technicalCopy}>
         <h3 className={styles.technicalTitle}>Supported Onsite Deployment</h3>
         <p>
-          AxisONE supports onsite deployment for industrial environments where
+          <BrandName /> supports onsite deployment for industrial environments where
           speed, reliability, and data control matter. By running AI inference
           near cameras, sensors, robots, and production equipment, the system
           helps teams respond faster while keeping critical operations closer to

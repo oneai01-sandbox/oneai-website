@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BrandName } from "@/components/common/BrandName";
 import { Container } from "@/components/common/Container";
 
 import styles from "./HeroSection.module.css";
@@ -35,7 +36,7 @@ export function HeroSection() {
           </p>
           <div className={styles.actions}>
             <Link className={styles.primaryAction} href="/product/axis-one">
-              Explore Axis ONE
+              Explore <BrandName />
             </Link>
             <Link className={styles.secondaryAction} href="/request-demo">
               Request a Demo

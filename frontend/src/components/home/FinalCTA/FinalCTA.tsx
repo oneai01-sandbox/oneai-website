@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BrandName } from "@/components/common/BrandName";
 import { Container } from "@/components/common/Container";
 import { siteRoutes } from "@/config/site";
 
@@ -16,7 +17,7 @@ export function FinalCTA() {
 
         <div className={styles.actionGroup}>
           <p>
-            See how AxisONE brings secure, real-time AI to your existing
+            See how <BrandName /> brings secure, real-time AI to your existing
             operation—without cloud or GPU infrastructure.
           </p>
           <Link className={styles.action} href={siteRoutes.requestDemo}>

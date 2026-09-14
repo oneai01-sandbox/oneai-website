@@ -1,0 +1,14 @@
+.brand {
+  display: inline;
+  white-space: nowrap;
+  text-transform: none;
+  font-variant: normal;
+}
+
+.dot {
+  display: inline-block;
+  width: 0.32em;
+  margin-inline: 0.02em;
+  letter-spacing: 0;
+  text-align: center;
+}
