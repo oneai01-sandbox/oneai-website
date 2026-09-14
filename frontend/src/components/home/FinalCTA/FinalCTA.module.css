@@ -37,7 +37,7 @@
   margin: 0;
   font-size: clamp(2.75rem, 5.7vw, 5rem);
   letter-spacing: 0.005em;
-  line-height: 0.98;
+  line-height: 1.15;
 }
 
 .actionGroup {
@@ -133,7 +133,7 @@
   .heading h2 {
     max-width: 24rem;
     font-size: clamp(2.5rem, 12vw, 3.75rem);
-    line-height: 1;
+    line-height: 1.15;
   }
 
   .actionGroup {
