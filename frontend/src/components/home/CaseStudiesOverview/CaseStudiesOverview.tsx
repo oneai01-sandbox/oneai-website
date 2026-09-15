@@ -11,7 +11,7 @@ const caseStudies = [
     label: "Robotics",
     description:
       "Enable robots to perceive, decide, and respond to changing environments in real time.",
-    image: "/case-study-01.png",
+    image: "/assets/03_case-studies/case-study-01.png",
     href: "/case-studies/robotics",
   },
   {
@@ -19,7 +19,7 @@ const caseStudies = [
     label: "Smart Factory",
     description:
       "Connect machines, vision, and automation to keep production precise, adaptive, and moving.",
-    image: "/case-study-02.png",
+    image: "/assets/03_case-studies/case-study-02.png",
     href: "/case-studies/smart-factory",
   },
   {
@@ -27,7 +27,7 @@ const caseStudies = [
     label: "Industrial Safety",
     description:
       "Detect emerging risks earlier and enable faster action before incidents disrupt operations.",
-    image: "/case-study-03.png",
+    image: "/assets/03_case-studies/case-study-03.png",
     href: "/case-studies/industrial-safety",
   },
   {
@@ -35,7 +35,7 @@ const caseStudies = [
     label: "Healthcare",
     description:
       "Streamline complex healthcare workflows with fast, reliable intelligence at the edge.",
-    image: "/case-study-04.png",
+    image: "/assets/03_case-studies/case-study-04.png",
     href: "/case-studies/healthcare",
   },
 ];

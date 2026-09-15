@@ -76,7 +76,7 @@ export function OverviewVisual({
     >
       <Image
         className={styles.overviewImage}
-        src="/case-study-01-overview.png"
+        src="/assets/03_case-studies/case-study-01-overview.png"
         alt="Annotated robotics workflow showing vision input, edge AI inference, object recognition, and robot control"
         width={1672}
         height={941}

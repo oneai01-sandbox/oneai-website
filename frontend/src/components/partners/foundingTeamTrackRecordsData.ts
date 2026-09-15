@@ -10,7 +10,7 @@ export type TrackRecord = {
 export const foundingTeamTrackRecords: TrackRecord[] = [
   {
     company: "LG Energy Solution",
-    logo: "/partners-logos/lg-energy-solutions.png",
+    logo: "/assets/01_about/partners-logos/lg-energy-solutions.png",
     project: "Battery defect detection AI",
     domain: "Manufacturing Vision AI",
     logoFit: "cover",
@@ -18,7 +18,7 @@ export const foundingTeamTrackRecords: TrackRecord[] = [
   },
   {
     company: "Hyundai Heavy Industries",
-    logo: "/partners-logos/hyundai-heavy-industries.png",
+    logo: "/assets/01_about/partners-logos/hyundai-heavy-industries.png",
     project: "Autonomous navigation / NAVISS",
     domain: "Autonomous Mobility",
     logoFit: "cover",
@@ -26,7 +26,7 @@ export const foundingTeamTrackRecords: TrackRecord[] = [
   },
   {
     company: "Hanwha Vision",
-    logo: "/partners-logos/hanhwa vision.png",
+    logo: "/assets/01_about/partners-logos/hanhwa vision.png",
     project: "AI Box / security cameras",
     domain: "Embedded Vision AI",
     logoFit: "contain",
@@ -34,7 +34,7 @@ export const foundingTeamTrackRecords: TrackRecord[] = [
   },
   {
     company: "Samsung",
-    logo: "/partners-logos/samsung.svg",
+    logo: "/assets/01_about/partners-logos/samsung.svg",
     project: "Kiosk Edge AI",
     domain: "Offline Vision Processing",
     logoFit: "contain",
@@ -42,7 +42,7 @@ export const foundingTeamTrackRecords: TrackRecord[] = [
   },
   {
     company: "Samsung Medison",
-    logo: "/partners-logos/samsung-medison.png",
+    logo: "/assets/01_about/partners-logos/samsung-medison.png",
     project: "Medical-device AI",
     domain: "Healthcare AI",
     logoFit: "contain",
@@ -50,7 +50,7 @@ export const foundingTeamTrackRecords: TrackRecord[] = [
   },
   {
     company: "S-1 Corporation",
-    logo: "/partners-logos/s-1 corp.png",
+    logo: "/assets/01_about/partners-logos/s-1 corp.png",
     project: "Security Edge AI",
     domain: "Real-time Threat Detection",
     logoFit: "contain",
@@ -58,7 +58,7 @@ export const foundingTeamTrackRecords: TrackRecord[] = [
   },
   {
     company: "CES 2025",
-    logo: "/partners-logos/CES.png",
+    logo: "/assets/01_about/partners-logos/CES.png",
     project: "Autonomous driving modules with Intel",
     domain: "Exhibition Record",
     logoFit: "cover",

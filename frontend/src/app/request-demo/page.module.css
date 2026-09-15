@@ -4,7 +4,7 @@
   --placeholder-title-color: var(--color-white);
   --placeholder-desc-color: rgb(255 255 255 / 72%);
   background-color: var(--color-navy);
-  background-image: url("/requestdemo-bgr.png");
+  background-image: url("assets/04_request-demo/requestdemo-bgr.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

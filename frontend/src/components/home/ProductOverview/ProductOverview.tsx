@@ -131,7 +131,7 @@ export function ProductOverview({
                 >
                   <Image
                     className={styles.objectImage}
-                    src="/axisone-each.png"
+                    src="/assets/00_home/axisone-each.png"
                     alt=""
                     fill
                     sizes="(max-width: 52rem) 50vw, 34vw"

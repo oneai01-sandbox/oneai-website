@@ -115,7 +115,7 @@ export function IndustrialSafetyPage() {
         <div className={styles.heroVisual}>
           <Image
             className={`${styles.heroImage} ${localStyles.heroImage}`}
-            src="/case-study-03.png"
+            src="/assets/03_case-studies/case-study-03.png"
             alt="Industrial safety monitoring with edge vision on factory piping and valves"
             fill
             priority
@@ -172,7 +172,7 @@ export function IndustrialSafetyPage() {
             <div className={styles.overviewVisual}>
               <Image
                 className={styles.overviewImage}
-                src="/case-study-03-overview.png"
+                src="/assets/03_case-studies/case-study-03-overview.png"
                 alt="Factory floor with vision overlays highlighting workers, vehicles, restricted zones, and robotic work cells"
                 width={1672}
                 height={941}

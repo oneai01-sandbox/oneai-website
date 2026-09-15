@@ -56,21 +56,21 @@ const workflowSteps = [
     index: "01",
     title: "Collect",
     description: "Capture image data from the production line.",
-    media: "/02-1.mov",
+    media: "/assets/03_case-studies/02-1.mov",
     alt: "Production-line image data being captured",
   },
   {
     index: "02",
     title: "Annotate & Train",
     description: "Label product images and train inspection models.",
-    media: "/case-study-02-annotate-train.png",
+    media: "/assets/03_case-studies/case-study-02-annotate-train.png",
     alt: "Product images being labeled to train inspection models",
   },
   {
     index: "03",
     title: "Infer",
     description: "Run edge AI models on production-line images.",
-    media: "/02-2.mov",
+    media: "/assets/03_case-studies/02-2.mov",
     alt: "Edge AI inspection running on production-line images",
   },
   {
@@ -78,7 +78,7 @@ const workflowSteps = [
     title: "Monitor",
     description:
       "Review inspection results and production trends through the dashboard.",
-    media: "/case-study-02-monitor.png",
+    media: "/assets/03_case-studies/case-study-02-monitor.png",
     alt: "Inspection results shown on a monitoring dashboard",
   },
 ] as const;
@@ -149,7 +149,7 @@ export function SmartFactoryPage() {
         <div className={styles.heroVisual}>
           <Image
             className={styles.heroImage}
-            src="/case-study-02.png"
+            src="/assets/03_case-studies/case-study-02.png"
             alt="Smart factory production line with vision intelligence at the edge"
             fill
             priority
@@ -205,7 +205,7 @@ export function SmartFactoryPage() {
                 preload="metadata"
                 aria-label="Smart Factory overview of production-line inspection and operational insight"
               >
-                <source src="/case-study-02-overview.mp4" type="video/mp4" />
+                <source src="/assets/03_case-studies/case-study-02-overview.mp4" type="video/mp4" />
                 Your browser does not support this video. Please try a different
                 browser to view the Smart Factory overview.
               </video>

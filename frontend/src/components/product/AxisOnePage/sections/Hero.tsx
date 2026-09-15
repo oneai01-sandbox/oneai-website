@@ -11,7 +11,7 @@ export function Hero() {
       <div className={styles.visual} aria-hidden="true">
         <Image
           className={styles.image}
-          src="/axisone-abstract.png"
+          src="/assets/02_product/axisone-abstract.png"
           alt=""
           fill
           priority

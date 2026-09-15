@@ -15,7 +15,7 @@ const stories = [
       "Bring real-time intelligence",
       "closer to every machine, system, and decision.",
     ],
-    image: "/powering-smarter-technology.png",
+    image: "/assets/00_home/powering-smarter-technology.png",
   },
   {
     number: "02",
@@ -24,7 +24,7 @@ const stories = [
       "Detect risks earlier",
       "to keep people, operations, and production moving safely.",
     ],
-    image: "/powering-safer-industries.png",
+    image: "/assets/00_home/powering-safer-industries.png",
   },
   {
     number: "03",
@@ -34,7 +34,7 @@ const stories = [
       "more intuitive,",
       "and more empowering for everyone.",
     ],
-    image: "/powering-better-lives.png",
+    image: "/assets/00_home/powering-better-lives.png",
   },
 ];
 

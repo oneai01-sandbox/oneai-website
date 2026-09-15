@@ -15,7 +15,7 @@ export function CaseStudies() {
       <div className={styles.visual} aria-hidden="true">
         <Image
           className={styles.image}
-          src="/axisone-casestudies-bg.png"
+          src="/assets/02_product/axisone-casestudies-bg.png"
           alt=""
           fill
           sizes="100vw"

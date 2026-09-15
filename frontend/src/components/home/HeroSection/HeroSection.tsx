@@ -17,7 +17,7 @@ export function HeroSection() {
         preload="metadata"
         aria-hidden="true"
       >
-        <source src="/hero-movie.mp4" type="video/mp4" />
+        <source src="/assets/00_home/hero-movie.mp4" type="video/mp4" />
       </video>
       <Container className={styles.inner}>
         <div className={styles.content}>

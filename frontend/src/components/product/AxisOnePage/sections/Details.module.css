@@ -44,7 +44,7 @@
 
 .workspace {
   display: grid;
-  grid-template-columns: minmax(16rem, 18.5rem) minmax(0, 1fr);
+  grid-template-columns: minmax(19rem, 22rem) minmax(0, 1fr);
   min-height: clamp(22rem, 36vw, 32rem);
   overflow: hidden;
   border: 1px solid rgb(7 25 49 / 10%);
@@ -64,8 +64,8 @@
   align-items: flex-start;
   gap: 0.45rem;
   width: 100%;
-  min-height: 6.5rem;
-  padding: 1.35rem 1.4rem 1.45rem 1.55rem;
+  min-height: 5.25rem;
+  padding: 1.15rem 1.4rem 1.25rem 1.55rem;
   border: 0;
   border-bottom: 1px solid rgb(255 255 255 / 10%);
   background: transparent;
@@ -89,12 +89,12 @@
 }
 
 .tabLabel {
-  max-width: 11.5rem;
   color: inherit;
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.25;
+  white-space: nowrap;
 }
 
 .tab[aria-selected="true"] {
@@ -103,9 +103,14 @@
   box-shadow: inset 0.28rem 0 0 var(--color-accent);
 }
 
-.tab:hover,
 .tab:focus-visible {
   color: var(--color-white);
+}
+
+@media (hover: hover) {
+  .tab:hover {
+    color: var(--color-white);
+  }
 }
 
 .tab[aria-selected="true"] .tabIndex {
@@ -245,6 +250,22 @@
   width: 100%;
 }
 
+.architectureTitle {
+  margin: 0 0 var(--space-5);
+  color: var(--color-navy);
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.desktopBreak {
+  display: block;
+}
+
+.mobileBreak {
+  display: none;
+}
+
 .architectureCopy p {
   margin: 0;
   color: var(--color-graphite);
@@ -261,6 +282,13 @@
   width: 100%;
   min-height: 22rem;
   aspect-ratio: 4 / 5;
+}
+
+.aboutVisual {
+  position: relative;
+  width: 100%;
+  min-height: 18rem;
+  aspect-ratio: 1 / 1;
 }
 
 .architectureImage {
@@ -357,7 +385,8 @@
   }
 
   .tab {
-    flex: 0 0 3.25rem;
+    flex: 1 1 0;
+    min-width: 0;
     min-height: 4.35rem;
     align-items: center;
     justify-content: center;
@@ -365,6 +394,7 @@
     padding: 0.75rem 0.55rem;
     border-right: 1px solid rgb(255 255 255 / 10%);
     border-bottom: 0;
+    touch-action: manipulation;
   }
 
   .tab:last-child {
@@ -372,18 +402,17 @@
   }
 
   .tab[aria-selected="true"] {
-    flex: 1 1 auto;
     align-items: flex-start;
     justify-content: center;
-    min-width: 0;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 0.7rem;
     box-shadow: inset 0 -0.22rem 0 var(--color-accent);
   }
 
   .tabLabel {
     display: none;
     max-width: none;
-    font-size: 0.95rem;
+    font-size: 0.82rem;
+    white-space: normal;
   }
 
   .tab[aria-selected="true"] .tabLabel {
@@ -398,8 +427,20 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .desktopBreak {
+    display: none;
+  }
+
+  .mobileBreak {
+    display: block;
+  }
+
   .architectureVisual {
     min-height: 18rem;
+  }
+
+  .aboutVisual {
+    min-height: 16rem;
   }
 
   .capabilityGrid {

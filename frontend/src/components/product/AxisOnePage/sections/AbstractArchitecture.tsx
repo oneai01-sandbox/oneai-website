@@ -22,7 +22,7 @@ export function AbstractArchitecture() {
       <div className={styles.architectureVisual}>
         <Image
           className={styles.architectureImage}
-          src="/abstract-architecture.png"
+          src="/assets/02_product/details/abstract-architecture.png"
           alt="Axis.ONE abstract architecture connecting field devices, data collection, edge AI inference, industrial applications, and MLOps"
           fill
           sizes="(max-width: 52rem) 90vw, 42vw"

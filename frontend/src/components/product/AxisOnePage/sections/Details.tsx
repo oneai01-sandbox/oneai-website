@@ -5,6 +5,7 @@ import { useCallback, useEffect, useId, useState } from "react";
 import { BrandName } from "@/components/common/BrandName";
 import { Container } from "@/components/common/Container";
 
+import { AboutAxisOne } from "./AboutAxisOne";
 import { AbstractArchitecture } from "./AbstractArchitecture";
 import { CoreCapabilities } from "./CoreCapabilities";
 import { TechnicalDetails } from "./TechnicalDetails";
@@ -14,8 +15,9 @@ import styles from "./Details.module.css";
 const SECTION_ID = "product-details";
 
 const tabs = [
-  { id: "abstract-architecture", label: "Abstract Architecture" },
-  { id: "technical-details", label: "Technical Details" },
+  { id: "about-axis-one", label: "About Axis.ONE" },
+  { id: "platform-structure", label: "Platform Structure" },
+  { id: "technical-architecture", label: "Technical Architecture" },
   { id: "core-capabilities", label: "Core Capabilities" },
 ] as const;
 
@@ -123,13 +125,31 @@ export function Details() {
                   aria-label={tab.label}
                   aria-controls={`${tabDomId}-panel`}
                   aria-selected={selected}
-                  tabIndex={selected ? 0 : -1}
-                  onClick={() => selectTab(tab.id)}
+                  tabIndex={0}
+                  onPointerDown={(event) => {
+                    if (event.button !== 0) {
+                      return;
+                    }
+
+                    selectTab(tab.id);
+                  }}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    selectTab(tab.id);
+                  }}
                 >
                   <span className={styles.tabIndex}>
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className={styles.tabLabel}>{tab.label}</span>
+                  <span className={styles.tabLabel}>
+                    {tab.id === "about-axis-one" ? (
+                      <>
+                        About <BrandName />
+                      </>
+                    ) : (
+                      tab.label
+                    )}
+                  </span>
                 </button>
               );
             })}
@@ -148,9 +168,11 @@ export function Details() {
                 aria-labelledby={tabDomId}
                 hidden={!selected}
               >
-                {tab.id === "abstract-architecture" ? (
+                {tab.id === "about-axis-one" ? (
+                  <AboutAxisOne />
+                ) : tab.id === "platform-structure" ? (
                   <AbstractArchitecture />
-                ) : tab.id === "technical-details" ? (
+                ) : tab.id === "technical-architecture" ? (
                   <TechnicalDetails />
                 ) : tab.id === "core-capabilities" ? (
                   <CoreCapabilities />

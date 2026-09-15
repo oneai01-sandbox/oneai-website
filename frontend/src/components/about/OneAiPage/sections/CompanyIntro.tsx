@@ -10,7 +10,7 @@ export function CompanyIntro() {
       <div className={styles.background} aria-hidden="true">
         <Image
           className={styles.backgroundImage}
-          src="/about-oneai-brand-bg.png"
+          src="/assets/01_about/about-oneai-brand-bg.png"
           alt=""
           fill
           priority
@@ -23,7 +23,7 @@ export function CompanyIntro() {
           <div className={styles.plaque}>
             <Image
               className={styles.plaqueImage}
-              src="/about-oneai-brand.png"
+              src="/assets/01_about/about-oneai-brand.png"
               alt=""
               width={1254}
               height={1254}

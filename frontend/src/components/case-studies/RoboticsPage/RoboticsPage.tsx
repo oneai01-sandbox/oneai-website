@@ -150,7 +150,7 @@ export function RoboticsPage({
         <div className={styles.heroVisual}>
           <Image
             className={styles.heroImage}
-            src="/case-study-01.png"
+            src="/assets/03_case-studies/case-study-01.png"
             alt="Robotic arm demonstration for vision-guided automation"
             fill
             priority

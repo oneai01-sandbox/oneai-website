@@ -18,19 +18,19 @@ type Partner = {
 export const partners: Partner[] = [
   {
     name: "Intel",
-    logo: "/intel-header-logo.svg",
+    logo: "/assets/01_about/partners-logos/intel-header-logo.svg",
     maxWidth: "7rem",
     maxHeight: "3rem",
   },
   {
     name: "OPEN Group",
-    logo: "/open-group-logo.png",
+    logo: "/assets/01_about/partners-logos/open-group-logo.png",
     maxWidth: "12rem",
     maxHeight: "4.5rem",
   },
   {
     name: "Hansol",
-    logo: "/hansol-logo.png",
+    logo: "/assets/01_about/partners-logos/hansol-logo.png",
     maxWidth: "11rem",
     maxHeight: "2.6rem",
   },

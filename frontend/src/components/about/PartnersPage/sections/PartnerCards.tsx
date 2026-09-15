@@ -7,9 +7,9 @@ import { siteRoutes } from "@/config/site";
 import styles from "./PartnerCards.module.css";
 
 const partners = [
-  { name: "Intel", description: "Selected for Intel Ingenius program as global innovation partner", image: "/intel-header-logo.svg" },
-  { name: "OPEN Group", description: "Collaborate and Technical support for the Japanese market", image: "/open-group-logo.png" },
-  { name: "Hansol", description: "MOU Signed on the Development of a Pre-Safety Detection System", image: "/hansol-logo.png" },
+  { name: "Intel", description: "Selected for Intel Ingenius program as global innovation partner", image: "/assets/01_about/partners-logos/intel-header-logo.svg" },
+  { name: "OPEN Group", description: "Collaborate and Technical support for the Japanese market", image: "/assets/01_about/partners-logos/open-group-logo.png" },
+  { name: "Hansol", description: "MOU Signed on the Development of a Pre-Safety Detection System", image: "/assets/01_about/partners-logos/hansol-logo.png" },
   { name: "Be together with us", description: "Contact us to collaborate", href: siteRoutes.contact, isCta: true },
 ];
 

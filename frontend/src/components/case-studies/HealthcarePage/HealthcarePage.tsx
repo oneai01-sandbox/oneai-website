@@ -114,7 +114,7 @@ export function HealthcarePage() {
         <div className={styles.heroVisual}>
           <Image
             className={`${styles.heroImage} ${localStyles.heroImage}`}
-            src="/case-study-04.png"
+            src="/assets/03_case-studies/case-study-04.png"
             alt="Automated clinical lab handling specimen vials with edge vision"
             fill
             priority
@@ -172,7 +172,7 @@ export function HealthcarePage() {
             <div className={styles.overviewVisual}>
               <Image
                 className={styles.overviewImage}
-                src="/case-study-04-overview.png"
+                src="/assets/03_case-studies/case-study-04-overview.png"
                 alt="Clinical workflow from patient records and voice input through AI analysis to structured medical documentation"
                 width={1672}
                 height={941}
