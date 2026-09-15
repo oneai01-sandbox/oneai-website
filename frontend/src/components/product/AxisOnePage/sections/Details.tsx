@@ -80,7 +80,7 @@ export function Details() {
           </h2>
           <p className={styles.description}>
             Explore how <BrandName /> connects industrial data, edge AI inference,{" "}
-            <br></br>
+            <br />
             and field operations through one unified system.
           </p>
         </div>

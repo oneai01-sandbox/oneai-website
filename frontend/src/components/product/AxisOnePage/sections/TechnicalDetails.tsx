@@ -1,106 +1,482 @@
-import Link from "next/link";
+"use client";
+
+import Image from "next/image";
+import { useEffect, useId, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { BrandName } from "@/components/common/BrandName";
 
-import { siteRoutes } from "@/config/site";
-
 import styles from "./Details.module.css";
 
-const cards = [
+const fieldDevices = [
   {
-    title: "Edge-Based Processing",
-    icon: "edge",
+    id: "fd1",
+    src: "/assets/02_product/details/fd1.png",
+    alt: "Industrial robot arm",
   },
   {
-    title: "Local Data Control",
-    icon: "data",
+    id: "fd2",
+    src: "/assets/02_product/details/fd2.png",
+    alt: "Vision camera system",
   },
   {
-    title: "Field System Integration",
-    icon: "field",
+    id: "fd3",
+    src: "/assets/02_product/details/fd3.png",
+    alt: "Safety sensing device",
+  },
+  {
+    id: "fd4",
+    src: "/assets/02_product/details/fd4.png",
+    alt: "Operator assistance device",
   },
 ] as const;
 
-function EdgeIcon() {
+const coreOverview = {
+  id: "core",
+  label: "Axis.CORE",
+  description:
+    "On-premises server that provides core services for operating and managing the Axis.ONE platform.",
+  icon: CoreLayerIcon,
+} as const;
+
+const coreModules = [
+  {
+    id: "storage",
+    label: "DB / Data Storage",
+    description:
+      "Stores and manages operational data, AI results, configurations, and system information.",
+    icon: StorageIcon,
+  },
+  {
+    id: "aiops",
+    label: "AIOps",
+    description:
+      "Supports the deployment, monitoring, and operation of AI models and services across the platform.",
+    icon: AiOpsIcon,
+  },
+  {
+    id: "resource",
+    label: "Resource Management",
+    description:
+      "Manages computing resources and workloads across connected edge environments.",
+    icon: ResourceIcon,
+  },
+  {
+    id: "orchestration",
+    label: "Orchestration",
+    description:
+      "Coordinates services, workloads, and system components for consistent operation across the platform.",
+    icon: OrchestrationIcon,
+  },
+  {
+    id: "manageability",
+    label: "Manageability",
+    description:
+      "Provides centralized visibility, configuration, and control of connected systems and services.",
+    icon: ManageabilityIcon,
+  },
+] as const;
+
+const edgeOverview = {
+  id: "edge",
+  label: "Axis.EDGE",
+  description:
+    "Edge-side application that deploys and operates specialized AI services close to field devices.",
+  icon: EdgeLayerIcon,
+} as const;
+
+const edgeApps = [
+  {
+    id: "robo",
+    name: "Robo",
+    label: "Robo.ONE",
+    description:
+      "Enables AI-powered perception and intelligent control for robotic systems and automation.",
+    icon: RoboIcon,
+  },
+  {
+    id: "vision",
+    name: "Vision",
+    label: "Vision.ONE",
+    description:
+      "Provides vision AI for inspection, monitoring, and intelligent operations in manufacturing environments.",
+    icon: VisionAppIcon,
+  },
+  {
+    id: "safe",
+    name: "Safe",
+    label: "Safe.ONE",
+    description:
+      "Combines multimodal data channels to detect, analyze, and respond to safety-related events in real time.",
+    icon: SafeIcon,
+  },
+  {
+    id: "assist",
+    name: "Assist",
+    label: "Assist.ONE",
+    description:
+      "Provides LLM-powered intelligent assistance using voice, language, and contextual information.",
+    icon: AssistIcon,
+  },
+] as const;
+
+function CoreLayerIcon() {
   return (
-    <svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
-      <rect x="18" y="16" width="36" height="28" rx="4" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M24 22h10M24 28h16M24 34h8" stroke="var(--color-accent)" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M28 44v6h16v-6" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M22 56h28" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      <circle cx="50" cy="24" r="3" fill="var(--color-accent)" />
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="7" y="6" width="18" height="6" rx="1.4" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="7" y="13" width="18" height="6" rx="1.4" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="7" y="20" width="18" height="6" rx="1.4" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="11" cy="9" r="1" fill="var(--color-accent)" />
+      <circle cx="11" cy="16" r="1" fill="var(--color-accent)" />
+      <circle cx="11" cy="23" r="1" fill="var(--color-accent)" />
     </svg>
   );
 }
 
-function DataIcon() {
+function EdgeLayerIcon() {
   return (
-    <svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="6" y="9" width="20" height="14" rx="3" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M11 16h10" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="16" cy="16" r="2.2" stroke="var(--color-accent)" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
+function RoboIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="8" y="10" width="16" height="13" rx="3" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="12.5" cy="16" r="1.6" fill="var(--color-accent)" />
+      <circle cx="19.5" cy="16" r="1.6" fill="var(--color-accent)" />
+      <path d="M16 7.5V10M12 7.5h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function VisionAppIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="6" y="10" width="16" height="12" rx="2.2" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="14" cy="16" r="3.2" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="14" cy="16" r="1.2" fill="var(--color-accent)" />
+      <path d="M22 14h4l2-2v10l-2-2h-4" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function SafeIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
       <path
-        d="M36 14 18 22v16c0 12 8.4 18.8 18 22 9.6-3.2 18-10 18-22V22Z"
+        d="M16 6.5 8 9.5v7.2c0 5 3.4 8.3 8 9.8 4.6-1.5 8-4.8 8-9.8V9.5Z"
         stroke="currentColor"
-        strokeWidth="1.8"
+        strokeWidth="1.5"
         strokeLinejoin="round"
       />
-      <rect x="28" y="28" width="16" height="18" rx="2" stroke="currentColor" strokeWidth="1.6" />
-      <circle cx="36" cy="36" r="2.2" fill="var(--color-accent)" />
-      <path d="M36 38.2V42" stroke="var(--color-accent)" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M12.8 16.2 15.2 18.6l4.4-5.2" stroke="var(--color-accent)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-function FieldIcon() {
+function AssistIcon() {
   return (
-    <svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
-      <circle cx="20" cy="24" r="6" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="52" cy="24" r="6" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="36" cy="50" r="6" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M25 28l8 16M47 28l-8 16M26 24h20" stroke="var(--color-accent)" strokeWidth="1.7" />
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <circle cx="16" cy="11" r="4" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M8.5 24.2c1.2-4 4.1-6 7.5-6s6.3 2 7.5 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M23.5 9.2c2.2 1.1 3.6 3.2 3.6 5.6" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
 
-const icons = {
-  edge: EdgeIcon,
-  data: DataIcon,
-  field: FieldIcon,
-};
+function StorageIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <ellipse cx="16" cy="8.5" rx="9" ry="3.4" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M7 8.5v15c0 1.9 4 3.4 9 3.4s9-1.5 9-3.4v-15"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path d="M7 16c0 1.9 4 3.4 9 3.4s9-1.5 9-3.4" stroke="var(--color-accent)" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
+function AiOpsIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="5" y="8" width="22" height="16" rx="2.2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M5 12.2h22" stroke="currentColor" strokeWidth="1.4" />
+      <circle cx="8.2" cy="10.1" r="0.85" fill="currentColor" />
+      <circle cx="10.7" cy="10.1" r="0.85" fill="currentColor" />
+      <path
+        d="M8.5 20.2h4.2l1.4-3.2 2.1 5.2 1.8-3.8H23.5"
+        stroke="var(--color-accent)"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M22.2 6.2 23.3 8l2 .4-1.4 1.5.3 2-1.8-.9-1.8.9.3-2-1.4-1.5 2-.4Z"
+        fill="var(--color-accent)"
+      />
+    </svg>
+  );
+}
+
+function ResourceIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="6" y="7" width="20" height="5" rx="1.4" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="6" y="14" width="20" height="5" rx="1.4" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="6" y="21" width="20" height="5" rx="1.4" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="11" cy="9.5" r="1.1" fill="var(--color-accent)" />
+      <circle cx="16" cy="16.5" r="1.1" fill="var(--color-accent)" />
+      <circle cx="21" cy="23.5" r="1.1" fill="var(--color-accent)" />
+    </svg>
+  );
+}
+
+function OrchestrationIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <circle cx="16" cy="8.5" r="3" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="8.5" cy="23" r="3" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="23.5" cy="23" r="3" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M16 11.5v4.2M14.4 15.7 10.4 20.4M17.6 15.7l4 4.7" stroke="var(--color-accent)" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
+function ManageabilityIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="9" y="11" width="14" height="13" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M13 11V9.2c0-1.6 1.3-2.9 3-2.9s3 1.3 3 2.9V11" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M16 15.2v5.2M16 20.4l-1.7-1.7M16 20.4l1.7-1.7"
+        stroke="var(--color-accent)"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M24.6 8.2a4.4 4.4 0 0 1 1.8 3.4M24.6 8.2l1.9.2M24.6 8.2l.4 1.9"
+        stroke="var(--color-accent)"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 
 export function TechnicalDetails() {
+  const [openModuleId, setOpenModuleId] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+  const titleId = useId();
+  const openItem =
+    openModuleId === coreOverview.id
+      ? coreOverview
+      : openModuleId === edgeOverview.id
+        ? edgeOverview
+        : coreModules.find((module) => module.id === openModuleId) ??
+          edgeApps.find((app) => app.id === openModuleId);
+  const OpenIcon = openItem?.icon;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!openModuleId) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpenModuleId(null);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [openModuleId]);
+
   return (
-    <div className={styles.technical}>
-      <div className={styles.technicalCopy}>
-        <h3 className={styles.technicalTitle}>Supported Onsite Deployment</h3>
+    <div className={styles.layersPanel}>
+      <div className={styles.layersIntro}>
+        <h3>
+          Explore the technical architecture of <BrandName />.
+        </h3>
         <p>
-          <BrandName /> supports onsite deployment for industrial environments where
-          speed, reliability, and data control matter. By running AI inference
-          near cameras, sensors, robots, and production equipment, the system
-          helps teams respond faster while keeping critical operations closer to
-          the field.
+          See how each component works within the platform.{" "}
+          <br className={styles.desktopBreak} />
+          Click a component to explore its role and capabilities.
         </p>
       </div>
 
-      <ul className={styles.technicalCards}>
-        {cards.map((card) => {
-          const Icon = icons[card.icon];
+      <div className={styles.layers}>
+      <p className={styles.layersBrand}>
+        <BrandName />
+      </p>
 
-          return (
-            <li className={styles.technicalCard} key={card.title}>
-              <span className={styles.technicalCardIcon}>
-                <Icon />
-              </span>
-              <p>{card.title}</p>
-            </li>
-          );
-        })}
-      </ul>
+      <div className={styles.layersStage}>
+        <Image
+          className={styles.layersImage}
+          src="/assets/02_product/details/axisone-details-3-bg.png"
+          alt=""
+          fill
+          sizes="(max-width: 52rem) 92vw, 58vw"
+        />
 
-      <Link className={styles.technicalAction} href={siteRoutes.requestDemo}>
-        <span>Request a Demo</span>
-        <span className={styles.technicalArrow} aria-hidden="true">
-          →
-        </span>
-      </Link>
+        <ul className={styles.layersLabels}>
+          <li className={`${styles.layersLabel} ${styles.layersField}`}>
+            <span className={styles.layersCoreName}>Field Devices</span>
+            <ul className={styles.layersFieldDevices}>
+              {fieldDevices.map((device) => (
+                <li data-device={device.id} key={device.id}>
+                  <span className={styles.layersFieldGlow} aria-hidden="true" />
+                  <Image
+                    className={styles.layersFieldImage}
+                    src={device.src}
+                    alt={device.alt}
+                    fill
+                    sizes="(max-width: 52rem) 22vw, 12vw"
+                  />
+                </li>
+              ))}
+            </ul>
+          </li>
+          <li className={`${styles.layersLabel} ${styles.layersEdge}`}>
+            <button
+              className={styles.layersCoreName}
+              type="button"
+              aria-haspopup="dialog"
+              aria-label="Axis.EDGE"
+              onClick={() => setOpenModuleId(edgeOverview.id)}
+            >
+              <BrandName product="EDGE" />
+            </button>
+            <ul className={styles.layersEdgeApps}>
+              {edgeApps.map((app) => (
+                <li key={app.id}>
+                  <button
+                    className={styles.layersEdgeApp}
+                    type="button"
+                    aria-haspopup="dialog"
+                    aria-label={app.label}
+                    data-app={app.id}
+                    onClick={() => setOpenModuleId(app.id)}
+                  >
+                    <BrandName name={app.name} />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </li>
+          <li className={`${styles.layersLabel} ${styles.layersBus}`}>
+            Data Bus
+          </li>
+          <li className={`${styles.layersLabel} ${styles.layersCore}`}>
+            <button
+              className={styles.layersCoreName}
+              type="button"
+              aria-haspopup="dialog"
+              aria-label="Axis.CORE"
+              onClick={() => setOpenModuleId(coreOverview.id)}
+            >
+              <BrandName product="CORE" />
+            </button>
+            <ul className={styles.layersCoreModules}>
+              {coreModules.map((module) => {
+                const Icon = module.icon;
+
+                return (
+                  <li key={module.id}>
+                    <button
+                      className={styles.layersCoreModule}
+                      type="button"
+                      aria-haspopup="dialog"
+                      aria-label={module.label}
+                      onClick={() => setOpenModuleId(module.id)}
+                    >
+                      <span className={styles.layersCoreIcon}>
+                        <Icon />
+                      </span>
+                      <span className={styles.layersCoreCaption}>
+                        {module.label}
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </li>
+        </ul>
+      </div>
+      </div>
+
+      {mounted && openItem
+        ? createPortal(
+            <div
+              className={styles.coreModalBackdrop}
+              onClick={() => setOpenModuleId(null)}
+            >
+              <div
+                className={styles.coreModal}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby={titleId}
+                onClick={(event) => event.stopPropagation()}
+              >
+                <p className={styles.coreModalEyebrow}>
+                  {openItem.id === coreOverview.id ||
+                  openItem.id === edgeOverview.id ? (
+                    <BrandName />
+                  ) : "name" in openItem ? (
+                    <BrandName product="EDGE" />
+                  ) : (
+                    <BrandName product="CORE" />
+                  )}
+                </p>
+                <div className={styles.coreModalHeading}>
+                  {OpenIcon ? (
+                    <span className={styles.coreModalIcon}>
+                      <OpenIcon />
+                    </span>
+                  ) : null}
+                  <h3 id={titleId}>
+                    {openItem.id === coreOverview.id ? (
+                      <BrandName product="CORE" />
+                    ) : openItem.id === edgeOverview.id ? (
+                      <BrandName product="EDGE" />
+                    ) : "name" in openItem ? (
+                      <BrandName name={openItem.name} />
+                    ) : (
+                      openItem.label
+                    )}
+                  </h3>
+                </div>
+                <p className={styles.coreModalCopy}>{openItem.description}</p>
+                <button
+                  className={styles.coreModalClose}
+                  type="button"
+                  onClick={() => setOpenModuleId(null)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
     </div>
   );
 }
