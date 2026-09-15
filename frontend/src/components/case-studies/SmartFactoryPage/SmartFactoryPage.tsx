@@ -63,7 +63,7 @@ const workflowSteps = [
     index: "02",
     title: "Annotate & Train",
     description: "Label product images and train inspection models.",
-    media: "/assets/03_case-studies/case-study-02-annotate-train.png",
+    media: "/assets/03_case-studies/case-study-02-annotate-train.mp4",
     alt: "Product images being labeled to train inspection models",
   },
   {
@@ -78,7 +78,7 @@ const workflowSteps = [
     title: "Monitor",
     description:
       "Review inspection results and production trends through the dashboard.",
-    media: "/assets/03_case-studies/case-study-02-monitor.png",
+    media: "/assets/03_case-studies/case-study-02-monitor.mp4",
     alt: "Inspection results shown on a monitoring dashboard",
   },
 ] as const;
