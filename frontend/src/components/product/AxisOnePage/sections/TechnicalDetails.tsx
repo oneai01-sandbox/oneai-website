@@ -44,36 +44,29 @@ const coreModules = [
     id: "storage",
     label: "DB / Data Storage",
     description:
-      "Stores and manages operational data, AI results, configurations, and system information.",
+      "Stores manufacturing data generated during operation, including production statistics and AI inference results.",
     icon: StorageIcon,
   },
   {
     id: "aiops",
     label: "AIOps",
     description:
-      "Supports the deployment, monitoring, and operation of AI models and services across the platform.",
+      "Trains and retrains AI models using data collected from field devices, then deploys the optimized models back to the devices.",
     icon: AiOpsIcon,
-  },
-  {
-    id: "resource",
-    label: "Resource Management",
-    description:
-      "Manages computing resources and workloads across connected edge environments.",
-    icon: ResourceIcon,
   },
   {
     id: "orchestration",
     label: "Orchestration",
     description:
-      "Coordinates services, workloads, and system components for consistent operation across the platform.",
+      "Allocates hardware resources according to workload requirements, optimizing utilization across the system.",
     icon: OrchestrationIcon,
   },
   {
-    id: "manageability",
-    label: "Manageability",
+    id: "ota",
+    label: "OTA Updates",
     description:
-      "Provides centralized visibility, configuration, and control of connected systems and services.",
-    icon: ManageabilityIcon,
+      "Remotely distributes improved AI models, bug fixes, and software updates from the central system to field devices.",
+    icon: OtaIcon,
   },
 ] as const;
 
@@ -225,19 +218,6 @@ function AiOpsIcon() {
   );
 }
 
-function ResourceIcon() {
-  return (
-    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect x="6" y="7" width="20" height="5" rx="1.4" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="6" y="14" width="20" height="5" rx="1.4" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="6" y="21" width="20" height="5" rx="1.4" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="11" cy="9.5" r="1.1" fill="var(--color-accent)" />
-      <circle cx="16" cy="16.5" r="1.1" fill="var(--color-accent)" />
-      <circle cx="21" cy="23.5" r="1.1" fill="var(--color-accent)" />
-    </svg>
-  );
-}
-
 function OrchestrationIcon() {
   return (
     <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -249,20 +229,20 @@ function OrchestrationIcon() {
   );
 }
 
-function ManageabilityIcon() {
+function OtaIcon() {
   return (
     <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect x="9" y="11" width="14" height="13" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M13 11V9.2c0-1.6 1.3-2.9 3-2.9s3 1.3 3 2.9V11" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="8" y="14" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M12 14V12.2c0-2.2 1.8-4 4-4s4 1.8 4 4V14" stroke="currentColor" strokeWidth="1.5" />
       <path
-        d="M16 15.2v5.2M16 20.4l-1.7-1.7M16 20.4l1.7-1.7"
+        d="M16 17.2v5.2M16 22.4l-1.8-1.8M16 22.4l1.8-1.8"
         stroke="var(--color-accent)"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M24.6 8.2a4.4 4.4 0 0 1 1.8 3.4M24.6 8.2l1.9.2M24.6 8.2l.4 1.9"
+        d="M24.4 7.8a4.6 4.6 0 0 1 2 3.6M24.4 7.8l2 .2M24.4 7.8l.4 2"
         stroke="var(--color-accent)"
         strokeWidth="1.4"
         strokeLinecap="round"

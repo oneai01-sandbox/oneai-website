@@ -42,6 +42,34 @@
   line-height: 1.65;
 }
 
+.brochure {
+  display: inline-flex;
+  min-height: 2.6rem;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.35rem;
+  padding: 0.55rem 0.95rem;
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.brochure span:last-child {
+  color: var(--color-accent-light);
+  transition: transform var(--transition-normal);
+}
+
+.brochure:hover,
+.brochure:focus-visible {
+  background: var(--color-accent);
+}
+
+.brochure:hover span:last-child,
+.brochure:focus-visible span:last-child {
+  transform: translateY(0.18rem);
+}
+
 .workspace {
   display: grid;
   grid-template-columns: minmax(19rem, 22rem) minmax(0, 1fr);
@@ -364,10 +392,6 @@
   min-width: 0;
   margin: 0;
   padding: 0;
-  padding-inline: max(
-    0px,
-    calc((100% - 4 * var(--core-gap)) / 10 - var(--core-icon) / 2)
-  );
   box-sizing: border-box;
   list-style: none;
   pointer-events: none;
@@ -421,10 +445,6 @@
   min-width: 0;
   margin: 0;
   padding: 0;
-  padding-inline: max(
-    0px,
-    calc((100% - 4 * var(--core-gap)) / 10 - var(--core-icon) / 2)
-  );
   box-sizing: border-box;
   list-style: none;
 }
@@ -522,7 +542,7 @@ button.layersCoreName {
 
 .layersCoreModules {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--core-gap);
   width: 100%;
   height: 72%;

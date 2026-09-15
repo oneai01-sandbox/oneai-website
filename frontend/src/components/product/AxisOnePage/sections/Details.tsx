@@ -13,6 +13,8 @@ import { TechnicalDetails } from "./TechnicalDetails";
 import styles from "./Details.module.css";
 
 const SECTION_ID = "product-details";
+const BROCHURE_HREF = "/assets/02_product/axisone-brochure.pdf";
+const BROCHURE_FILENAME = "Axis.ONE-Brochure.pdf";
 
 const tabs = [
   { id: "about-axis-one", label: "About Axis.ONE" },
@@ -83,6 +85,14 @@ export function Details() {
             <br />
             and field operations through one unified system.
           </p>
+          <a
+            className={styles.brochure}
+            href={BROCHURE_HREF}
+            download={BROCHURE_FILENAME}
+          >
+            <span>Download Brochure</span>
+            <span aria-hidden="true">↓</span>
+          </a>
         </div>
 
         <div className={styles.workspace}>
