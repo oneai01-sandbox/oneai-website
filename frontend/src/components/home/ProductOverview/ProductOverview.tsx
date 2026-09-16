@@ -86,7 +86,7 @@ export function ProductOverview({
       aria-labelledby={headingId}
     >
       <Container
-        className={`${styles.container} ${stackedTitle ? styles.containerStacked : ""}`.trim()}
+        className={styles.container}
       >
         <div className={`${styles.copy} ${stackedTitle ? styles.copyStacked : ""}`.trim()}>
           <p className={styles.eyebrow}>PRODUCT</p>
