@@ -24,7 +24,7 @@
 .copy {
   position: relative;
   z-index: 2;
-  max-width: 24rem;
+  max-width: 26rem;
 }
 
 .eyebrow {
@@ -66,10 +66,19 @@
   font-size: clamp(1.25rem, 2.1vw, 1.9rem);
   letter-spacing: -0.02em;
   line-height: 1.12;
+  white-space: nowrap;
 }
 
 .tagline span {
   display: block;
+}
+
+.description {
+  max-width: 22rem;
+  margin: var(--space-4) 0 0;
+  color: var(--color-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
 }
 
 .link {

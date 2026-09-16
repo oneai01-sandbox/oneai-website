@@ -10,31 +10,37 @@ import styles from "./PoweringShowcase.module.css";
 const stories = [
   {
     number: "01",
-    title: ["Smarter", "Technology"],
-    description: [
-      "Bring real-time intelligence",
-      "closer to every machine, system, and decision.",
-    ],
-    image: "/assets/00_home/powering-smarter-technology.png",
+    lead: "Built for",
+    rest: "Business",
+    description: (
+      <>
+        Your business has eyes and hands.
+        <br />
+        Now it needs a brain.
+      </>
+    ),
+    image: "/assets/00_home/built-for-your-business.png",
   },
   {
     number: "02",
-    title: ["Safer", "Industries"],
-    description: [
-      "Detect risks earlier",
-      "to keep people, operations, and production moving safely.",
-    ],
-    image: "/assets/00_home/powering-safer-industries.png",
+    lead: "On",
+    rest: "Infrastructure",
+    description: (
+      <>
+        Start without costly GPU infrastructure.
+        <br />
+        Scale as your business grows.
+      </>
+    ),
+    image: "/assets/00_home/on-your-infrastructure.png",
   },
   {
     number: "03",
-    title: ["Better", "Lives"],
-    description: [
-      "Make complex work simpler,",
-      "more intuitive,",
-      "and more empowering for everyone.",
-    ],
-    image: "/assets/00_home/powering-better-lives.png",
+    lead: "Under",
+    rest: "Control",
+    description:
+      "Keep your data, models, and intelligence secure within your environment.",
+    image: "/assets/00_home/under-your-control.png",
   },
 ];
 
@@ -89,7 +95,7 @@ export function PoweringShowcase() {
   return (
     <section
       className={styles.section}
-      aria-label="Impact stories"
+      aria-label="Your stories"
       ref={sectionRef}
     >
       <div className={styles.stage} ref={stageRef}>
@@ -124,20 +130,16 @@ export function PoweringShowcase() {
           <div className={styles.copy}>
             <span className={styles.storyNumber}>{activeStory.number}</span>
             <h2>
-              <span className={styles.prefix}>Powering</span>
-              <span
-                className={styles.storyTitle}
-                key={activeStory.title.join("-")}
-              >
-                {activeStory.title.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
+              <span className={styles.prefix} key={activeStory.lead}>
+                {activeStory.lead}
+              </span>
+              <span className={styles.connector}>Your</span>
+              <span className={styles.storyTitle} key={activeStory.rest}>
+                {activeStory.rest}
               </span>
             </h2>
-            <p className={styles.description}>
-              {activeStory.description.map((line) => (
-                <span key={line}>{line}</span>
-              ))}
+            <p className={styles.description} key={activeStory.number}>
+              {activeStory.description}
             </p>
           </div>
         </Container>

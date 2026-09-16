@@ -39,6 +39,8 @@ type ProductOverviewProps = {
   sectionId?: string;
   showLink?: boolean;
   stackedTitle?: boolean;
+  tagline?: ReactNode;
+  description?: ReactNode;
 };
 
 export function ProductOverview({
@@ -47,6 +49,14 @@ export function ProductOverview({
   sectionId,
   showLink = true,
   stackedTitle = false,
+  tagline = "Your AI brain starts here.",
+  description = (
+    <>
+      Start small with what you need,
+      <br />
+      then scale as your business grows.
+    </>
+  ),
 }: ProductOverviewProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -96,10 +106,10 @@ export function ProductOverview({
           >
             {title}
           </h2>
-          <p className={styles.tagline}>
-            <span>Industrial intelligence,</span>
-            <span>built at the edge.</span>
-          </p>
+          {tagline ? <p className={styles.tagline}>{tagline}</p> : null}
+          {description ? (
+            <p className={styles.description}>{description}</p>
+          ) : null}
           {showLink ? (
             <Link className={styles.link} href="/product/axis-one">
               <span>

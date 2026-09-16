@@ -48,7 +48,7 @@
 }
 
 .copy {
-  max-width: 30rem;
+  max-width: 36rem;
   transition:
     opacity 700ms ease,
     transform 700ms cubic-bezier(0.2, 0.65, 0.2, 1);
@@ -99,39 +99,46 @@
 }
 
 .copy h2 {
-  max-width: 12ch;
+  max-width: 14ch;
   margin: 0;
   color: var(--color-white);
-  font-size: clamp(2.7rem, 5vw, 5.25rem);
+  font-size: clamp(2.5rem, 4.8vw, 4.85rem);
   letter-spacing: 0.01em;
-  line-height: 0.92;
+  line-height: 1.08;
+  text-transform: uppercase;
 }
 
 .prefix {
   display: block;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.32em;
   color: var(--color-accent-light);
-  font-size: 0.58em;
-  letter-spacing: 0.01em;
+  font-size: 0.42em;
+  letter-spacing: 0.08em;
   line-height: 1;
-}
-
-.storyTitle {
-  display: block;
   animation: title-reveal 550ms cubic-bezier(0.2, 0.65, 0.2, 1) both;
 }
 
-.storyTitle span,
-.description span {
+.connector,
+.storyTitle {
   display: block;
+  line-height: 1.08;
+}
+
+.connector {
+  margin-bottom: 0.06em;
+}
+
+.storyTitle {
+  animation: title-reveal 550ms cubic-bezier(0.2, 0.65, 0.2, 1) both;
 }
 
 .description {
-  max-width: 22rem;
+  max-width: 26rem;
   margin: var(--space-6) 0 0;
   color: rgb(255 255 255 / 72%);
   font-size: 1rem;
   line-height: 1.65;
+  animation: title-reveal 550ms cubic-bezier(0.2, 0.65, 0.2, 1) both;
 }
 
 .frame {
@@ -207,7 +214,9 @@
     opacity: 1 !important;
   }
 
-  .storyTitle {
+  .prefix,
+  .storyTitle,
+  .description {
     animation: none;
   }
 

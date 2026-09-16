@@ -17,6 +17,13 @@ export function AxisOnePage() {
         sectionId="overview"
         showLink={false}
         stackedTitle
+        tagline={
+          <>
+            <span>Industrial intelligence,</span>
+            <span>built at the edge.</span>
+          </>
+        }
+        description={null}
         title={
           <>
             <span>The core of</span>
